@@ -70,27 +70,24 @@ The model is optimized using gradient descent, an iterative method for minimizin
 
 The Elastic Net regression aims to minimize the following objective function:
 
-<p>arg min<sub>&beta;</sub> (1 / 2n) * ||y - X&beta;||<sub>2</sub><sup>2</sup> + &alpha; * (1 - l1_ratio / 2) * ||&beta;||<sub>2</sub><sup>2</sup> + l1_ratio * ||&beta;||<sub>1</sub></p>
+<p>&beta;&#770; = arg min<sub>&beta;</sub> (1 / 2n) * &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> + &alpha; * (1 - l1_ratio / 2) * &#124;&#124;&beta;&#124​
 
-Where
- represents the estimated coefficients (or parameters) of the ElasticNet regression model that minimize the objective function.
-
-
-arg min this denotes the operation of finding the value of  (the coefficient vector) that minimizes the objective function.
-12n​∣∣y-Xβ∣∣22  is the residual sum of squares (RSS), which measures how well the model fits the data.
-y is the vector of observed target values.
-Xβ are the predicted values (based on the feature matrix X and coefficients  .
-∣∣y-Xβ∣∣22 is the squared Euclidean distance (L2 Norm) between the true target y and the predicted values Xβ, which represents the total error.
-12n this part uses a 2n factor for scaling and simplifies the gradient calculation, n represents the number of observations/data points.
- is the regularization strength. It balances the trade-off between minimizing the error (RSS) and shrinking the coefficients to reduce model complexity.
-1-l1_ratio2​∣∣β∣∣22 is the Ridge penalty to control overfitting.
-∣∣β∣∣22 The L2 norm (sum of squares) of the coefficients  which penalizes large values of  to prevent overfitting.
-1-l1_ratio2  This controls the contribution of the L2 penalty, based on the L1 ratio parameter.
-
-
-l1_ratio⋅∣∣β∣∣1 is the Lasso penalty induce sparsity.
-⋅∣∣β∣∣1 The L1 norm (sum of absolute values) of the coefficients \beta, which encourages sparsity by shrinking some coefficients to zero.
-l1_ratio This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.
+Where:
+     <p>&beta;&#770; represents the estimated coefficients (or parameters) of the ElasticNet regression model that minimize the objective function.<br> 
+     <p>arg min<sub>&beta;</sub>   this denotes the operation of finding the value of  (the coefficient vector) that minimizes the objective function.<br>
+     <p>(1 / 2n) &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup>  is the residual sum of squares (RSS), which measures how well the model fits the data.<br>
+     y is the vector of observed target values.<br>
+     Xβ are the predicted values (based on the feature matrix X and coefficients. <br>
+     &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the squared Euclidean distance (L2 Norm) between the true target y and the predicted values Xβ, which represents the
+     total error.<br>
+     <sup>1</sup>&frasl;<sub>2n</sub> this part uses a 2n factor for scaling and simplifies the gradient calculation, n represents the number of observations/data points.<br>
+     &alpha; is the regularization strength. It balances the trade-off between minimizing the error (RSS) and shrinking the coefficients to reduce model complexity.<br>
+     (1 - l1_ratio) / 2 &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup>  is the Ridge penalty to control overfitting.<br>
+     &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> The L2 norm (sum of squares) of the coefficients  which penalizes large values of  to prevent overfitting.<br>
+     1-l1_ratio2  This controls the contribution of the L2 penalty, based on the L1 ratio parameter.<br>
+     (1 - l1_ratio) / <sub>2</sub> is the Lasso penalty induce sparsity.<br>
+     ⋅∣∣β∣∣1 The L1 norm (sum of absolute values) of the coefficients \beta, which encourages sparsity by shrinking some coefficients to zero.<br>
+     l1_ratio This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.<br>
 
 Soft Thresholding and proximal operator perspective
 <p>prox<sub>1</sub> arg min<sub>&beta;</sub> (1 / 2n) * ||y - X&beta;||<sub>2</sub><sup>2</sup> + (2 / 2) * ||&beta;||<sub>2</sub><sup>2</sup></p>
