@@ -34,8 +34,8 @@ Example:
 `from elasticnet.models.ElasticNet import ElasticNetModel`
 
 # Generate example data
-`X = np.random.rand(100, 3)  # 100 samples, 3 features
-y = 2 * X[:, 0] - 3 * X[:, 1] + 1.5 * X[:, 2] + np.random.normal(0, 0.1, 100)`
+`X = np.random.rand(100, 3)  # 100 samples, 3 features`
+`y = 2 * X[:, 0] - 3 * X[:, 1] + 1.5 * X[:, 2] + np.random.normal(0, 0.1, 100)`
 
 # Initialize the model
 `model = ElasticNetModel(alpha=0.1, l1_ratio=0.5, max_iter=1000, tol=1e-5, learning_rate=0.01)`
