@@ -4,8 +4,6 @@ Harlee Ramos	 A20528450
 
 Andres Orozco A20528634
 
-**READ ME FILE**
-
 This document contains two parts. The information on how to run the program and the answers to the Project 1 questions. 
 
 # How to run the ElasticNet model:
