@@ -82,12 +82,14 @@ Where:
   <li>&#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the squared Euclidean distance (L2 Norm) between the true target y and the predicted values X&beta;, which represents the total error.</li>
   <li><sup>1</sup>&frasl;<sub>2n</sub> this part uses a 2n factor for scaling and simplifies the gradient calculation; n represents the number of observations/data points.</li>
   <li>&alpha; is the regularization strength. It balances the trade-off between minimizing the error (RSS) and shrinking the coefficients to reduce model complexity.</li>
+  
   <li>(1 - l1_ratio) / 2 &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the Ridge penalty to control overfitting.</li>
-  <li>&#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> The L2 norm (sum of squares) of the coefficients, which penalizes large values of &beta; to prevent overfitting.</li>
-  <li>1 - l1_ratio2 This controls the contribution of the L2 penalty, based on the L1 ratio parameter.</li>
-  <li>(1 - l1_ratio) / <sub>2</sub> is the Lasso penalty that induces sparsity.</li>
+      <li>&#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> The L2 norm (sum of squares) of the coefficients, which penalizes large values of &beta; to prevent overfitting.</li>
+     <li>1 - l1_ratio / <sub>2</sub>  This controls the contribution of the L2 penalty, based on the L1 ratio parameter.</li>
+  
+  <li>l1_ratio &middot; &#124;&#124;&beta;&#124;&#124;<sub>1</sub> is the Lasso penalty that induces sparsity.</li>
   <li>⋅&#124;&#124;&beta;&#124;&#124;<sub>1</sub> The L1 norm (sum of absolute values) of the coefficients &beta;, which encourages sparsity by shrinking some coefficients to zero.</li>
-  <li>(1 - l1_ratio) / <sub>2</sub> This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.</li>
+  <li>(l1_ratio) This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.</li>
 </ul>
 
 Soft Thresholding and proximal operator perspective
