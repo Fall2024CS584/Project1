@@ -12,7 +12,7 @@ This document contains two parts. The information on how to run the program and 
 
 Instructions on how to use the ElasticNet Regularization Model: The `ElasticNetModel` is a custom implementation of ElasticNet regression, combining L1 (Lasso) and L2 (Ridge) regularization with gradient descent optimization. It’s suitable for datasets with high dimensionality and multicollinearity. 
 
-Importing the Model
+**Importing the Model**
 
 In your Python environment, import the `ElasticNetModel` following the code and examples below:
 
@@ -20,9 +20,13 @@ In your Python environment, import the `ElasticNetModel` following the code and 
 
 **Training the Model with fit**
 
-To train the model, use the fit method. It requires:
+To train the model, use the fit method. 
+It requires:
+
 X: A 2D NumPy array with shape [n_samples, n_features] representing the features.
+
 y: A 1D NumPy array with shape [n_samples] representing the target values.
+
 Example:
 
 `import numpy as np`
