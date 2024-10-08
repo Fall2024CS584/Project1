@@ -139,8 +139,7 @@ Users can tweak these parameters to improve the model's performance until they f
 # 4. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental to the model?
 
 Our ElasticNet model works well with different types of data like linear, nonlinear, and collinear datasets. However, it may struggles a bit with large datasets and very sparse data (lots of zero values). The main reason is that our model uses gradient descent, which can be slower in these cases compared to the built-in ElasticNet, which uses, according to what we researched, a faster method called coordinate descent.
-With more time, and according to the literature, we could make it faster by switching to mini-batch gradient descent or even adopting coordinate descent. These changes would help it handle large or sparse datasets better. So, the challenges aren't fundamental to ElasticNet; they’re just about the optimization method we chose.
-
+With more time, and according to the literature, we could make it faster by switching to mini-batch gradient descent or even adopting coordinate descent. These changes would help it handle large or sparse datasets better. 
 
 
 
