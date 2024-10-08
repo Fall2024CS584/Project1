@@ -99,3 +99,48 @@ print("Sample predictions:", y_pred[:5])
 
 <h3>Soft Thresholding and Proximal Operator Perspective</h3>
 <p>&beta;&#770; = prox<sub>1</sub> arg min<sub>&beta;</sub> (1 / 2n) &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> + (2 / 2) &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup></p>
+
+# 1. What does the model you have implemented do and when should it be used?
+
+The ElasticNet regression model implemented in this project is a linear regression technique that combines L1 (Lasso) and L2 (Ridge) regularization penalties. This combination allows the model to address the limitations of using either Lasso or Ridge alone, such as over-penalization (Lasso) or failing to select relevant features (Ridge). The optimization process uses gradient descent, which iteratively adjusts the coefficients by minimizing the objective function in the direction of the steepest descent. This method allows the model to balance between fitting the training data and controlling complexity through regularization.
+
+The ElasticNet model is particularly useful when dealing with datasets that have:
+- **High Dimensionality**: It performs well when the number of features is greater than the number of observations or when many features are irrelevant. The L1 penalty helps in selecting the most relevant features by shrinking some coefficients to zero, making the model easier to interpret.
+- **Multicollinearity**: ElasticNet is effective when features are highly correlated, as it combines the L2 penalty to stabilize the solution and avoid overfitting that could arise from collinear predictors. This ensures a more balanced coefficient estimation compared to Lasso alone.
+- **Feature Selection and Regularization**: ElasticNet can select a subset of features while still applying a penalty to the magnitude of other coefficients, which makes it a versatile option for improving model interpretability.
+The model should **not be used** when:
+- **Data is scarce**: If the dataset has very few observations, simpler models like Ridge or Lasso alone might be more appropriate.
+- **No multicollinearity exists**: In cases where features are not correlated, a simpler model might suffice.
+- **Real-time predictions are required**: Since this implementation uses gradient descent, it may not be as fast as some optimized libraries (e.g., scikit-learn) for large-scale data.
+Overall, this implementation is a great fit for scenarios where feature selection, handling multicollinearity, and scalability across a range of regularization strengths are crucial.
+
+# 2. How did you test your model to determine if it is working reasonably correctly?
+
+We tested the custom ElasticNet model by comparing it against the scikit-learn ElasticNet implementation across six progressively complex datasets. These tests included simple linear data with a single feature, linear data with multiple features, nonlinear data, collinear data, periodic data, and high-dimensional data. Each test allowed us to observe how the model performed in different scenarios, such as handling nonlinearity, multicollinearity, and complex feature interactions. We evaluated model performance using accuracy metrics like R² (coefficient of determination) and MSE (mean squared error) to ensure the model's predictive accuracy. By comparing the results with scikit-learn's implementation, we validated the custom model's performance and identified its strengths and weaknesses in handling diverse types of data. The ElasticNet testing is part of the deliveries of this project and can be found in the test section of the GitHub environment. 
+
+# 3. What parameters have you exposed to users of your implementation to tune Performance?
+
+The ElasticNet model provides several adjustable parameters to help users fine-tune performance based on their data and desired outcomes:
+
+- **Alpha (α)**: Controls the overall strength of regularization. Higher values of alpha increase regularization, which helps to prevent overfitting but can lead to underfitting if set too high. Users can adjust this to find a balance between fitting the data closely and keeping the model simple.
+
+- **L1 Ratio (L1/L2 Ratio)**: Determines the balance between L1 (Lasso) and L2 (Ridge) penalties. A value of 1.0 means pure Lasso (more feature selection), while 0.0 means pure Ridge (more smoothing). Users can adjust this to control the level of sparsity and feature selection in their model.
+
+- **Maximum Iterations (max_iter)**: Sets the maximum number of iterations for the optimization process. If the model struggles to converge, increasing this value can help. A lower value can be used for faster training when precision is less critical.
+
+- **Tolerance (tol)**: Defines the stopping criteria for the optimization. Lower tolerance values make the model run longer for more precise results, while higher values can speed up training when quick results are needed.
+
+- **Learning Rate**: Adjusts the step size of the gradient descent during each iteration. A smaller learning rate provides more precise optimization but can be slower, while a larger learning rate speeds up training but may risk overshooting the optimal solution.
+
+- **Model Coefficients (coef_) and Intercept (intercept_)**: After training, these attributes represent the model's learned parameters. While users don’t adjust them directly, they can inspect these to understand how the model has adapted to their data.
+
+Users can tweak these parameters to improve the model's performance until they find the best fit for their data, making the ElasticNet model adaptable to various datasets and scenarios.
+
+# 4. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental to the model?
+
+Our ElasticNet model works well with different types of data like linear, nonlinear, and collinear datasets. However, it may struggles a bit with large datasets and very sparse data (lots of zero values). The main reason is that our model uses gradient descent, which can be slower in these cases compared to the built-in ElasticNet, which uses, according to what we researched, a faster method called coordinate descent.
+With more time, and according to the literature, we could make it faster by switching to mini-batch gradient descent or even adopting coordinate descent. These changes would help it handle large or sparse datasets better. So, the challenges aren't fundamental to ElasticNet; they’re just about the optimization method we chose.
+
+
+
+
