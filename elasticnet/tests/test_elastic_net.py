@@ -1,7 +1,6 @@
 import csv
 import numpy as np
-from models.elastic_net_regression import ElasticNetModel  # Adjust this import based on your file structure
-
+from models.elastic_net_regression import ElasticNetModel
 def test_predict():
     model = ElasticNetModel(alpha=0.5, l1_ratio=0.8)
     data = []
