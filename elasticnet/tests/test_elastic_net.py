@@ -1,8 +1,8 @@
 import csv
 import numpy as np
-from models.elastic_net_regression import ElasticNet
+from models.ElasticNet import ElasticNetModel
 def test_predict():
-    model = ElasticNet(alpha=0.5, l1_ratio=0.8)
+    model = ElasticNetModel(alpha=0.5, l1_ratio=0.8)
     data = []
 
     # Reading the CSV data
