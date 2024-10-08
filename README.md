@@ -93,7 +93,7 @@ l1_ratio⋅∣∣β∣∣1 is the Lasso penalty induce sparsity.
 l1_ratio This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.
 
 Soft Thresholding and proximal operator perspective
-=prox1argmin12n​∣∣y-Xβ∣∣22​+22​∣∣β∣∣22​
+<p>prox<sub>1</sub> arg min<sub>&beta;</sub> (1 / 2n) * ||y - X&beta;||<sub>2</sub><sup>2</sup> + (2 / 2) * ||&beta;||<sub>2</sub><sup>2</sup></p>
 
 1. What does the model you have implemented do and when should it be used?
 The ElasticNet regression model implemented in this project is a linear regression technique that combines L1 (Lasso) and L2 (Ridge) regularization penalties. This combination allows the model to address the limitations of using either Lasso or Ridge alone, such as over-penalization (Lasso) or failing to select relevant features (Ridge). The optimization process uses gradient descent, which iteratively adjusts the coefficients by minimizing the objective function in the direction of the steepest descent. This method allows the model to balance between fitting the training data and controlling complexity through regularization.
