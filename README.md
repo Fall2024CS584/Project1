@@ -30,6 +30,7 @@ y: A 1D NumPy array with shape [n_samples] representing the target values.
 Example:
 
 `import numpy as np`
+
 `from elasticnet.models.ElasticNet import ElasticNetModel`
 
 # Generate example data
@@ -41,17 +42,24 @@ Example:
 
 # Fit the model
 `results = model.fit(X, y)`
-Making Predictions with predict
+
+**Making Predictions with predict**
+
 To predict with the fitted model, use the predict method:
 X: A 2D NumPy array with the same number of features as the training data.
 Example:
 # Predict using the trained model
+
 `y_pred = results.predict(X)`
+
 `import numpy as np`
+
 `from elasticnet.models.ElasticNet import ElasticNetModel`
 
 # Generate sample data
+
 `X = np.random.rand(100, 3)`
+
 `y = 4 * X[:, 0] - 2 * X[:, 1] + 0.5 * X[:, 2] + np.random.normal(0, 0.1, 100)`
 
 # Initialize and fit the model
@@ -59,11 +67,13 @@ Example:
 `results = model.fit(X, y)`
 
 # Make predictions
+
 `y_pred = results.predict(X)`
 
 `print("Sample predictions:", y_pred[:5])`
 
 Notes
+
 Ensure that X and y are formatted as NumPy arrays before using fit.
 The predict method can be used for any dataset with the same number of features as the training data.
 
