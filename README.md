@@ -4,11 +4,11 @@ Harlee Ramos	 A20528450
 
 Andres Orozco A20528634
 
-**README FILE**
+**READ ME FILE**
 
 This document contains two parts. The information on how to run the program and the answers to the Project 1 questions. 
 
-How to run the ElasticNet model:
+# How to run the ElasticNet model:
 
 Instructions on how to use the ElasticNet Regularization Model: The `ElasticNetModel` is a custom implementation of ElasticNet regression, combining L1 (Lasso) and L2 (Ridge) regularization with gradient descent optimization. It’s suitable for datasets with high dimensionality and multicollinearity. 
 
@@ -60,7 +60,8 @@ print("Sample predictions:", y_pred[:5])
 Notes
 Ensure that X and y are formatted as NumPy arrays before using fit.
 The predict method can be used for any dataset with the same number of features as the training data.
-Answer to the Project 1 questions:
+
+# Answer to the Project 1 questions:
 
 **Brief introduction**
 
