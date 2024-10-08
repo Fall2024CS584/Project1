@@ -69,7 +69,7 @@ The model is optimized using gradient descent, an iterative method for minimizin
 
 The Elastic Net regression aims to minimize the following objective function:
 
-=arg min12n​∣∣y-Xβ∣∣22​+α​⋅1-l1_ratio2​∣∣β∣∣22​+l1_ratio⋅∣∣β∣∣1
+<p>arg min<sub>&beta;</sub> (1 / 2n) * ||y - X&beta;||<sub>2</sub><sup>2</sup> + &alpha; * (1 - l1_ratio / 2) * ||&beta;||<sub>2</sub><sup>2</sup> + l1_ratio * ||&beta;||<sub>1</sub></p>
 
 Where
  represents the estimated coefficients (or parameters) of the ElasticNet regression model that minimize the objective function.
