@@ -73,24 +73,25 @@ The Elastic Net regression aims to minimize the following objective function:
 <p>&beta;&#770; = arg min<sub>&beta;</sub> (1 / 2n) * &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> + &alpha; * (1 - l1_ratio / 2) * &#124;&#124;&beta;&#124​
 
 Where:
-     <p>&beta;&#770; represents the estimated coefficients (or parameters) of the ElasticNet regression model that minimize the objective function.<br> 
-     <p>arg min<sub>&beta;</sub>   this denotes the operation of finding the value of  (the coefficient vector) that minimizes the objective function.<br>
-     <p>(1 / 2n) &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup>  is the residual sum of squares (RSS), which measures how well the model fits the data.<br>
-     y is the vector of observed target values.<br>
-     Xβ are the predicted values (based on the feature matrix X and coefficients. <br>
-     &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the squared Euclidean distance (L2 Norm) between the true target y and the predicted values Xβ, which represents the
-     total error.<br>
-     <sup>1</sup>&frasl;<sub>2n</sub> this part uses a 2n factor for scaling and simplifies the gradient calculation, n represents the number of observations/data points.<br>
-     &alpha; is the regularization strength. It balances the trade-off between minimizing the error (RSS) and shrinking the coefficients to reduce model complexity.<br>
-     (1 - l1_ratio) / 2 &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup>  is the Ridge penalty to control overfitting.<br>
-     &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> The L2 norm (sum of squares) of the coefficients  which penalizes large values of  to prevent overfitting.<br>
-     1-l1_ratio2  This controls the contribution of the L2 penalty, based on the L1 ratio parameter.<br>
-     (1 - l1_ratio) / <sub>2</sub> is the Lasso penalty induce sparsity.<br>
-     ⋅∣∣β∣∣1 The L1 norm (sum of absolute values) of the coefficients \beta, which encourages sparsity by shrinking some coefficients to zero.<br>
-     l1_ratio This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.<br>
+<p>&beta;&#770; represents the estimated coefficients (or parameters) of the ElasticNet regression model that minimize the objective function.</p>
+<ul>
+  <li>arg min<sub>&beta;</sub> this denotes the operation of finding the value of (the coefficient vector) that minimizes the objective function.</li>
+  <li>(1 / 2n) &#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the residual sum of squares (RSS), which measures how well the model fits the data.</li>
+  <li>y is the vector of observed target values.</li>
+  <li>X&beta; are the predicted values (based on the feature matrix X and coefficients).</li>
+  <li>&#124;&#124;y - X&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the squared Euclidean distance (L2 Norm) between the true target y and the predicted values X&beta;, which represents the total error.</li>
+  <li><sup>1</sup>&frasl;<sub>2n</sub> this part uses a 2n factor for scaling and simplifies the gradient calculation; n represents the number of observations/data points.</li>
+  <li>&alpha; is the regularization strength. It balances the trade-off between minimizing the error (RSS) and shrinking the coefficients to reduce model complexity.</li>
+  <li>(1 - l1_ratio) / 2 &#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> is the Ridge penalty to control overfitting.</li>
+  <li>&#124;&#124;&beta;&#124;&#124;<sub>2</sub><sup>2</sup> The L2 norm (sum of squares) of the coefficients, which penalizes large values of &beta; to prevent overfitting.</li>
+  <li>1 - l1_ratio2 This controls the contribution of the L2 penalty, based on the L1 ratio parameter.</li>
+  <li>(1 - l1_ratio) / <sub>2</sub> is the Lasso penalty that induces sparsity.</li>
+  <li>⋅&#124;&#124;&beta;&#124;&#124;<sub>1</sub> The L1 norm (sum of absolute values) of the coefficients &beta;, which encourages sparsity by shrinking some coefficients to zero.</li>
+  <li>(1 - l1_ratio) / <sub>2</sub> This controls the contribution of the L1 penalty in the regularization mix. A value of 1 means only Lasso, while a value of 0 means only Ridge.</li>
+</ul>
 
 Soft Thresholding and proximal operator perspective
-<p>prox<sub>1</sub> arg min<sub>&beta;</sub> (1 / 2n) * ||y - X&beta;||<sub>2</sub><sup>2</sup> + (2 / 2) * ||&beta;||<sub>2</sub><sup>2</sup></p>
+<p>&beta;&#770; = <p>prox<sub>1</sub> arg min<sub>&beta;</sub> (1 / 2n) * ||y - X&beta;||<sub>2</sub><sup>2</sup> + (2 / 2) * ||&beta;||<sub>2</sub><sup>2</sup></p>
 
 1. What does the model you have implemented do and when should it be used?
 The ElasticNet regression model implemented in this project is a linear regression technique that combines L1 (Lasso) and L2 (Ridge) regularization penalties. This combination allows the model to address the limitations of using either Lasso or Ridge alone, such as over-penalization (Lasso) or failing to select relevant features (Ridge). The optimization process uses gradient descent, which iteratively adjusts the coefficients by minimizing the objective function in the direction of the steepest descent. This method allows the model to balance between fitting the training data and controlling complexity through regularization.
