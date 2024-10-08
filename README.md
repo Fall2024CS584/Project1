@@ -14,9 +14,9 @@ Instructions on how to use the ElasticNet Regularization Model: The `ElasticNetM
 
 Importing the Model
 
-In your Python environment, import the `ElasticNetModel following the code and examples below:
+In your Python environment, import the `ElasticNetModel` following the code and examples below:
 
-from elasticnet.models.ElasticNet import ElasticNetModel
+`from elasticnet.models.ElasticNet import ElasticNetModel`
 
 Training the Model with fit
 To train the model, use the fit method. It requires:
@@ -28,35 +28,36 @@ import numpy as np
 from elasticnet.models.ElasticNet import ElasticNetModel
 
 # Generate example data
-X = np.random.rand(100, 3)  # 100 samples, 3 features
-y = 2 * X[:, 0] - 3 * X[:, 1] + 1.5 * X[:, 2] + np.random.normal(0, 0.1, 100)
+`X = np.random.rand(100, 3)  # 100 samples, 3 features`
+`y = 2 * X[:, 0] - 3 * X[:, 1] + 1.5 * X[:, 2] + np.random.normal(0, 0.1, 100)`
 
 # Initialize the model
-model = ElasticNetModel(alpha=0.1, l1_ratio=0.5, max_iter=1000, tol=1e-5, learning_rate=0.01)
+`model = ElasticNetModel(alpha=0.1, l1_ratio=0.5, max_iter=1000, tol=1e-5, learning_rate=0.01)`
 
 # Fit the model
-results = model.fit(X, y)
+`results = model.fit(X, y)`
 Making Predictions with predict
 To predict with the fitted model, use the predict method:
 X: A 2D NumPy array with the same number of features as the training data.
 Example:
 # Predict using the trained model
-y_pred = results.predict(X)
-import numpy as np
-from elasticnet.models.ElasticNet import ElasticNetModel
+`y_pred = results.predict(X)`
+`import numpy as np`
+`from elasticnet.models.ElasticNet import ElasticNetModel`
 
 # Generate sample data
-X = np.random.rand(100, 3)
-y = 4 * X[:, 0] - 2 * X[:, 1] + 0.5 * X[:, 2] + np.random.normal(0, 0.1, 100)
+`X = np.random.rand(100, 3)`
+`y = 4 * X[:, 0] - 2 * X[:, 1] + 0.5 * X[:, 2] + np.random.normal(0, 0.1, 100)`
 
 # Initialize and fit the model
-model = ElasticNetModel(alpha=0.05, l1_ratio=0.7, max_iter=1000, tol=1e-5, learning_rate=0.01)
-results = model.fit(X, y)
+`model = ElasticNetModel(alpha=0.05, l1_ratio=0.7, max_iter=1000, tol=1e-5, learning_rate=0.01)`
+`results = model.fit(X, y)`
 
 # Make predictions
-y_pred = results.predict(X)
+`y_pred = results.predict(X)`
 
-print("Sample predictions:", y_pred[:5])
+`print("Sample predictions:", y_pred[:5])`
+
 Notes
 Ensure that X and y are formatted as NumPy arrays before using fit.
 The predict method can be used for any dataset with the same number of features as the training data.
