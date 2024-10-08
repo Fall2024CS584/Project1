@@ -18,14 +18,15 @@ In your Python environment, import the `ElasticNetModel` following the code and 
 
 `from elasticnet.models.ElasticNet import ElasticNetModel`
 
-Training the Model with fit
+**Training the Model with fit**
+
 To train the model, use the fit method. It requires:
 X: A 2D NumPy array with shape [n_samples, n_features] representing the features.
 y: A 1D NumPy array with shape [n_samples] representing the target values.
 Example:
 
-import numpy as np
-from elasticnet.models.ElasticNet import ElasticNetModel
+`import numpy as np`
+`from elasticnet.models.ElasticNet import ElasticNetModel`
 
 # Generate example data
 `X = np.random.rand(100, 3)  # 100 samples, 3 features`
