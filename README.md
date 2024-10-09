@@ -164,5 +164,4 @@ Yes, there are specific scenarios where this implementation may face challenges:
 - **Handling Multi-output Regression**: Extend the code to support predicting multiple target variables.
 - **Advanced Encoding Techniques**: Use more sophisticated encoding techniques for high-cardinality categorical variables.
 
-### Summary:
-The implemented **ElasticNet** model is a versatile linear regression technique that combines both **Lasso** and **Ridge** regularization. It can be tuned to handle overfitting and perform feature selection. The code supports handling categorical features, evaluating performance with appropriate metrics, and tuning important parameters for optimal results. However, it has some limitations, such as handling sparse data and multi-target regression, which could be addressed with further improvements.
+
