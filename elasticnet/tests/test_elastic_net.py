@@ -1,9 +1,14 @@
+import os
 import csv
 import numpy as np
 from models.ElasticNet import ElasticNetModel
+
 def test_predict():
     model = ElasticNetModel(alpha=0.5, l1_ratio=0.8)
     data = []
+    
+    current_dir = os.path.dirname(__file__) 
+    csv_file_path = os.path.join(current_dir, 'small_test.csv') 
 
     # Reading the CSV data
     with open("small_test.csv", "r") as file:
