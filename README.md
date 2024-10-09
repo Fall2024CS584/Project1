@@ -1,7 +1,8 @@
 Team Members:
 1. Badri Adusumalli A20530163
 2. Bhuvana Chandrika Natharga A20553587
-3. Santhosh 
+3. Santhosh Kumar Kathiresan A20546185
+4. 
 
 
 ## 1. What does the model you have implemented do, and when should it be used?
