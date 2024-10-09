@@ -2,7 +2,7 @@
 1. Badri Adusumalli A20530163
 2. Bhuvana Chandrika Natharga A20553587
 3. Santhosh Kumar Kathiresan A20546185
-4. 
+4. Sriram Ravichandran A20583347
 
 
 ## 1. What does the model you have implemented do, and when should it be used?
