@@ -119,7 +119,7 @@ The testing procedure involves the following steps:
      - **R-squared (R²)**: Represents the proportion of variance in the target variable that is explained by the features. An R² closer to 1 indicates a better fit.
 
 6. **Printing Model Parameters**:
-   - The code also prints the learned coefficients, intercept, and the number of non-zero coefficients. This helps understand the impact of each feature and the regularization effect.
+   - The code also prints the learned coefficients and intercept. This helps understand the impact of each feature and the regularization effect.
 
 ### 3. **What parameters have you exposed to users of your implementation in order to tune performance?**
 
