@@ -1,3 +1,9 @@
+Team Members:
+1. Badri Adusumalli A20530163
+2. Bhuvana Chandrika Natharga A20
+3. Santhosh 
+
+
 ## 1. What does the model you have implemented do, and when should it be used?
 
 The model implemented is a **Linear Regression model with ElasticNet regularization**. ElasticNet is a regularized linear regression technique that combines **L1 (Lasso)** and **L2 (Ridge)** regularization. The primary purpose of this model is to **predict a continuous target variable** (regression tasks) based on a set of input features.
