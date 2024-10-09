@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class ElasticNetModel:
     def __init__(self, alpha=1.0, l1_ratio=0.5, max_iter=1000, tol=1e-4, epochs=1):
         self.alpha = alpha  # Regularization strength
