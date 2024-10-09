@@ -68,6 +68,7 @@ print("Sample predictions:", y_pred[:5])
 <ul>
   <li>Ensure that <code>X</code> and <code>y</code> are formatted as NumPy arrays before using <code>fit</code>.</li>
   <li>The <code>predict</code> method can be used for any dataset with the same number of features as the training data.</li>
+  <li>For use the classes MyMSE, MyRSquared, just change the import: from models.ElasticNet import ElasticNetModel, MyMSE, MyRSquared </li>
 </ul>
 
 <h2>Answer to the Project 1 questions:</h2>
