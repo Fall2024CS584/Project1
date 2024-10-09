@@ -63,9 +63,5 @@ def test_predict():
     print(f"Coefficients (beta): {results.coef_}")
     print(f"Intercept (beta0): {results.intercept_}")
 
-    # Print the number of non-zero coefficients
-    non_zero_coefs = np.sum(results.coef_ != 0)
-    print(f"Number of non-zero coefficients: {non_zero_coefs}")
-
     # Dummy assertion, replace with actual evaluation
     assert isinstance(preds, np.ndarray), "Prediction is not an array"
