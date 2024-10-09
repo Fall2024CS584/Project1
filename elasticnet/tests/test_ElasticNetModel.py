@@ -1,8 +1,10 @@
 import csv
 import numpy as np
+import pandas as pd
 from elasticnet.models.ElasticNet import ElasticNetModel
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 
 
 def test_predict():
@@ -12,15 +14,31 @@ def test_predict():
     # Correct path to the CSV file
     csv_file_path = "elasticnet/tests/small_test.csv"
 
-    # Reading the CSV data
-    with open(csv_file_path, "r") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            data.append(row)
+    # Reading the CSV data into a Pandas DataFrame for easier manipulation
+    df = pd.read_csv(csv_file_path)
 
-    # Extracting features (X) and target (y)
-    X = np.array([[float(v) for k, v in datum.items() if k.startswith('x')] for datum in data])
-    y = np.array([float(datum['y']) for datum in data])
+    # Separating the features (X) and target (y)
+    X = df.drop(columns=['y'])
+    y = df['y']
+
+    # Handling categorical columns in X using OneHotEncoder
+    categorical_cols = X.select_dtypes(include=['object', 'category']).columns
+    if len(categorical_cols) > 0:
+        encoder = OneHotEncoder(sparse=False, drop='first')
+        X_encoded = pd.DataFrame(encoder.fit_transform(X[categorical_cols]), index=X.index)
+        X_encoded.columns = encoder.get_feature_names_out(categorical_cols)
+
+        # Drop original categorical columns and concatenate the encoded columns
+        X = X.drop(columns=categorical_cols)
+        X = pd.concat([X, X_encoded], axis=1)
+
+    # Handling categorical target variable y using LabelEncoder
+    if y.dtype == 'object':
+        label_encoder = LabelEncoder()
+        y = label_encoder.fit_transform(y)
+
+    # Converting the DataFrame to NumPy array for model input
+    X = X.values
 
     # Split the data into 80% training and 20% testing
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
@@ -30,6 +48,10 @@ def test_predict():
 
     # Making predictions on the test data
     preds = results.predict(X_test)
+
+    # If y was categorical, convert predictions back to categorical labels
+    if y.dtype == 'object':
+        preds = label_encoder.inverse_transform(np.round(preds).astype(int))
 
     # Calculate the Mean Squared Error and R-squared for the test set
     mse = mean_squared_error(y_test, preds)
