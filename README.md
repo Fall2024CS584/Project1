@@ -1,4 +1,5 @@
 # Project 1 
+August Gross - A20481734
 
 ## What is ElasticNet and When Should It Be Used?
 
