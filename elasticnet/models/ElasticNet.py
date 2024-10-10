@@ -30,9 +30,11 @@ class ElasticNetModel:
         # Preprocess the data
         self.ns, self.nf = x.shape  # Collect shape
 
+        # Number conversion
         self.X = x.astype(np.float64) if not np.issubdtype(x.dtype, np.number) else x
-
         self.Y = y.astype(np.float64) if not np.issubdtype(y.dtype, np.number) else y
+        if self.Y.shape == (self.Y.shape[0],):  # Fix '(n, )' shape
+            self.Y = self.Y[:, np.newaxis]
 
         # Init parameters
         self.w = np.zeros((self.nf, 1))
