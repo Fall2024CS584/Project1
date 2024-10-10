@@ -12,7 +12,7 @@ def test_predict():
     data = []
 
     # Correct path to the CSV file
-    csv_file_path = "elasticnet/tests/small_test.csv"
+    csv_file_path = "elasticnet/tests/generated_data.csv"
 
     # Reading the CSV data into a Pandas DataFrame for easier manipulation
     df = pd.read_csv(csv_file_path)
