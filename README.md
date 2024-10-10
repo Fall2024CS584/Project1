@@ -70,7 +70,7 @@ If time permits, we could go through some of the more advanced techniques such a
 - **What we have implemented in teh ElasticNet.py file?**
 - Developed the ElasticNet class from scratch and also added the gradiant descent for continuosly updating the weights and bias.
 - We have also used this file for the testing purposes which are also mentioned in the tests(test_ElasticNetModel.py)
-- 
+  
 ## Dataset
 The **auto-mpg** dataset was used for this project. The dataset contains the following features:
 - `mpg`: Miles per gallon (target variable).
