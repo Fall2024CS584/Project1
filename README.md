@@ -19,7 +19,6 @@ The model has the following parameters that can be tuned:
 Example usage:
 ```python
 from elasticnet.models.ElasticNet import ElasticNetModel
-import numpy as np
 
 model = ElasticNetModel(alpha=0.1, l1_ratio=0.5)
 results = model.fit(X_train, y_train)
