@@ -1,9 +1,9 @@
 # README
 
-##Rakesh Reddy - A20525389
-##Geeta Hade - A20580824 
-##Nishant Khandhar - A20581012
-##Amogh Vastrad - A20588808 
+###Rakesh Reddy - A20525389
+###Geeta Hade - A20580824 
+###Nishant Khandhar - A20581012
+###Amogh Vastrad - A20588808 
 
 ## Overview
 
