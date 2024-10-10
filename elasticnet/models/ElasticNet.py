@@ -3,7 +3,7 @@ import numpy as np
 class ElasticNetModel():
     def __init__(self, alpha=0.1, l1_ratio=0.5, learning_rate=0.01, iterations=1000):
         # We are setting the hyperparamenters for the ElasticNet model 
-        self.alpha = alpha  # Alphs --> Regularization strength
+        self.alpha = alpha  # Alphs --> Strength of the regularization
         self.l1_ratio = l1_ratio  
         self.learning_rate = learning_rate  # Learning rate for the gradient descent
         self.iterations = iterations  # Number of iterations for the gradient descent
