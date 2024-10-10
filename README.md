@@ -2,6 +2,8 @@
 ### Raghav Shah- A20570886 ###
 ### Shreedhruthi Boinpally- A20572883 ###
 
+### How to Run the Code ###
+#### Command in Terminal: python -m elasticnet.tests.test_ElasticNetModel ####
 
 # Elastic Net Regression Model
 
