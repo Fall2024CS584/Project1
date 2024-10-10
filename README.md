@@ -94,9 +94,9 @@ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta(x^{(i)}) - y^{(i)} \righ
 \] $$ 
 
 Where:
-- \( h_\theta(x) \) is the hypothesis function.
-- \( \alpha \) is the regularization strength.
-- \( \rho \) is the L1 ratio, controlling the balance between L1 and L2 regularization.
+- $$\( h_\theta(x) \)$$ is the hypothesis function.
+- $$\( \alpha \)$$ is the regularization strength.
+- $$\( \rho \)$$ is the L1 ratio, controlling the balance between L1 and L2 regularization.
 
 ### Gradient Descent
 Model parameters, which include weights and bias, were optimized using Gradient Descent with an iterative update rule such that the cost function became minimized. Since the model took more than 1000 iterations to learn, we monitored cost after regular intervals to make sure that convergence happened.
