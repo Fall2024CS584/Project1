@@ -4,7 +4,7 @@ Put your README here. Answer the following questions.
 Member: Yuxuan Qian
 * __What does the model you have implemented do and when should it be used?__
 
-Elastic net regression
+Elastic net regression. It can be used in high-dimensional datasets that contain many characters and correlate with others.  
   
 * __How did you test your model to determine if it is working reasonably correctly?__
 
@@ -18,19 +18,23 @@ In code, the above parameters show: lamb, alp, max_iterate, rate, tol
 Users need to set the initial lambda and alpha. The default max iteration, learning rate, and tolerance are respectively 1000, 0.01, 0.001
 
 Usage examples:
+```
 from project1 import ElasticNetModel as ENM
 
 model = ENM(100, 0.5, max_iterate = 1000, rate = 0.0001, tol = 0.001)
 
 model.fit(x_train, y_train)
+```
 
 __OR__
 
+```
 from project1 import ElasticNetModel as ENM
 
 model = ENM(100, 0.5)
 
 model.fit(x_train, y_train)
+```
 
 
 * __Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?__
