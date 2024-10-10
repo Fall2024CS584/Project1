@@ -160,13 +160,13 @@ print("Intercept:", model.intercept)
 
 To run the tests using pytest, you can execute the following command:
 
-##### 1. **Professor-Given Test Cases**
+#### 1. **Professor-Given Test Cases**
 
 - **Test Case 1**: Verifies the initialization of the model with default parameters.
     ```bash
     pytest -s test_ElasticNetModel.py
     ```
-##### 2. **Custom Test Cases (Added by Us)**
+#### 2. **Custom Test Cases (Added by Us)**
 
 - **Custom Test Case 1**: This test evaluates the performance of a custom ElasticNetModel compared to Scikit-Learn's ElasticNet on a housing dataset from the UCI Machine Learning Repository. The features are standardized for the custom model, while the Scikit-Learn model uses raw data. Both models are fit to the data, and their predictions are compared using mean squared error (MSE) and R-squared (R²) scores to assess their accuracy and goodness of fit.
     ```bash
