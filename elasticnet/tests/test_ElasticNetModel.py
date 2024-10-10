@@ -5,7 +5,12 @@ import numpy
 from elasticnet.models.ElasticNet import ElasticNetModel
 
 def test_predict():
-    model = ElasticNetModel()
+    """
+    """
+
+    # default params - alpha=1.0, l1_ratio=0.5, max_iter=1000, tol=1e-4, learning_rate=0.01
+    # It can be changed as per requirements.
+    model = ElasticNetModel() 
     data = []
     with open("small_test.csv", "r") as file:
         reader = csv.DictReader(file)

@@ -18,7 +18,7 @@ This project implements a **Linear Regression with ElasticNet Regularization** f
 - [Things we have done above and beyond?](#things-we-have-done-above-and-beyond)
 - [Usage](#usage)
   - [Installation](#installation)
-  - [Data Preparation](#data-preparation-required)
+  - [Data Preparation](#data-preparation)
   - [Example](#example)
   - [Running Testcases](#running-the-tests)
 - [Answers to the Questions](#answers-to-the-questions)
@@ -80,17 +80,15 @@ Added functionality to plot the loss function or weight updates over iterations 
 
 2. **Install Dependencies**:
 
-   This implementation only requires NumPy, which is usually installed by default. If not, install it using:
+   This implementation only requires NumPy, which is usually installed by default. To run our test cases we need some more library. 
+   <span style="color: red;">We are using scikit-learn, scipy, and matplotlib for testing purposes only. This is just to compare our model results with the standard library results.</span>
 
    ```bash
    pip install -r requirements.txt
    ```
 
-### Note
-<span style="color: red;">We are using scikit-learn, scipy, and matplotlib for testing purposes. This is just to compare our model results with the standard library results.</span>
 
-
-## Data Preparation (Required)
+## Data Preparation
 
 - **Features (`X`):** Should be a 2D array-like structure with shape `(n_samples, n_features)`.
 - **Target (`y`):** Should be a 1D array-like structure with length `n_samples`.
@@ -118,6 +116,16 @@ Added functionality to plot the loss function or weight updates over iterations 
 ### Example
 
 Here's how to use the `ElasticNetModel` class:
+### Note: 
+If you get error like python module elesticnet not found then export this module in python path by this command -
+```
+"export PYTHONPATH="$PYTHONPATH:<project-root-location>"
+```
+
+Like for me it was -
+```
+"export PYTHONPATH="$PYTHONPATH:/Volumes/MyLab/assignments/cs-584/project-01-remote/Project1"
+```
 
 ```python
 
@@ -161,6 +169,7 @@ print("Intercept:", model.intercept)
 To run the tests using pytest, you can execute the following command:
 
 #### 1. **Professor-Given Test Cases**
+To run the test cases go inside **tests** folder. I am using pytes t(python library) to run the test cases.
 
 - **Test Case 1**: Verifies the initialization of the model with default parameters.
     ```bash
