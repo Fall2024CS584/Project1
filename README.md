@@ -12,8 +12,7 @@ Member: Yuxuan Qian
     
 * __What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)__
 
-  Parameters: lambda, alpha, max iteration, learning rate, tolerance
-  In code, the above parameters show: lamb, alp, max_iterate, rate, tol
+  Parameters: lambda, alpha, max iteration, learning rate, tolerance. In codes, those parameters are shown in lamb, alp, max_iterate, rate, and tol.
   
   Users need to set the initial lambda and alpha. The default max iteration, learning rate, and tolerance are respectively 1000, 0.01, 0.001
   
