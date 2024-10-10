@@ -31,7 +31,7 @@ class ElasticNetModel():
         return cost + regularization
 
     def gradient_descent(self, X, y):
-        # Performing the gradient descent to the updating of weights and bias.
+        # Performing the gradient descent to the updating of weights and bias
         m = len(y)
         
         for i in range(self.iterations):
