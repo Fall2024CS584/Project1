@@ -134,9 +134,9 @@ We generated various visualizations to understand the model performance and the 
 ## Model Evaluation
 The model was evaluated using Mean Squared Error (MSE) on the **auto-mpg** dataset. The final MSE was:
 
-\[
+$$\[
 \text{Mean Squared Error (MSE)} = 12.2156
-\]
+\]$$ 
 
 This value indicates how well the model predicted the miles per gallon (MPG) based on the features of the cars.
 
