@@ -7,6 +7,10 @@
 - **Hemanth Vennelakanti** (A20526563)
 - **Kiran Velamati** (A20525555)
 
+## **Dataset Link:**
+
+https://github.com/siddiquiamir/Data/blob/master/winedata.csv
+
 ---
 
 ### **What does the model you have implemented do and when should it be used?**
