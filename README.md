@@ -1,6 +1,10 @@
 # Project 1 
 
 # ElasticNet Model Implementation
+Group members
+A20539949 - Usha Devaraju
+A20548244 - Roopashri Kommana
+A20550565 - Sai Sandeep Neerukonda
 
 ## What does the model you have implemented do and when should it be used?
 
