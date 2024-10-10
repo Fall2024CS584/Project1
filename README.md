@@ -4,7 +4,7 @@ Put your README here. Answer the following questions.
 Member: Yuxuan Qian
 * __What does the model you have implemented do and when should it be used?__
 
-I did an elastic net regression model. It can be used in high-dimensional datasets that contain many characters and correlate with others.  
+  I did an elastic net regression model. It can be used in high-dimensional datasets that contain many characters and correlate with others.  
   
 * __How did you test your model to determine if it is working reasonably correctly?__
 
