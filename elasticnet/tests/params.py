@@ -1,7 +1,7 @@
 # All User parameter can be adjusted from here.
 
 # User picked data type to use : [options] "file", "synthetic", "multi_collinear"
-data_selection = "file"  # Default is "synthetic"
+data_selection = "multi_collinear"  # Default is "synthetic"
 
 # User defined params for data import setting
 data_file_params = {
@@ -35,8 +35,8 @@ data_mul_params = {
 # User defined params for training model
 test_params = {
     "learning_rate": 0.01,  # Learning rate for gradient regression
-    "epochs": 10,  # Number of trainings
+    "epochs": 10000,  # Number of trainings
     "alpha": 0.001,  # Strength controller of regularization
-    "rho": 0.5,  # L1 ratio
+    "rho": 0.015,  # L1 ratio
     "optimization": True  # Whether to find optimal cost option
 }
