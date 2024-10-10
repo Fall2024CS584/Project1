@@ -1,6 +1,6 @@
 # Project 1 
-Course: CS584 - Machine Learning
-Instructor: Steve Avsec
+- Course: CS584 - Machine Learning
+- Instructor: Steve Avsec
 
 ## Team Members
 1. Munish Patel - mpatel176@hawk.iit.edu (A20544034)
