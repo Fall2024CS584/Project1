@@ -29,8 +29,10 @@ class ElasticNetModel:
         """
         # Preprocess the data
         self.ns, self.nf = x.shape  # Collect shape
-        self.X = x.astype(np.float64)
-        self.Y = y.astype(np.float64)[:, np.newaxis]
+
+        self.X = x.astype(np.float64) if not np.issubdtype(x.dtype, np.number) else x
+
+        self.Y = y.astype(np.float64) if not np.issubdtype(y.dtype, np.number) else y
 
         # Init parameters
         self.w = np.zeros((self.nf, 1))
@@ -38,8 +40,8 @@ class ElasticNetModel:
 
         # Training
         for trial in range(self.epochs):
-            cost = self.update_weights()
-            self.models.append((trial + 1, self.w, self.b, cost))
+            self.cost = self.update_weights()
+            self.models.append((trial + 1, self.w, self.b, self.cost))
 
         return ElasticNetModelResults(self)
 
@@ -67,9 +69,9 @@ class ElasticNetModel:
         # should collect the derivation due to L1
         for j in range(self.nf):
             MSE = - np.dot(self.X[:, j], residuals) / self.ns
+
             L1 = self.l1_lambda * np.sign(self.w[j])  # L1 penalty
             L2 = self.l2_lambda * self.w[j]  # L2 penalty
-
             # Update the gradient with MSE, L1, and L2
             dW[j] = MSE + L1 + L2
 
@@ -90,8 +92,13 @@ class ElasticNetModel:
 class ElasticNetModelResults:
     def __init__(self, model: ElasticNetModel):
         self.model = model  # trained model
+        self.models = self.model.models
+        self.w = self.model.w
+        self.b = self.model.b
+        self.epoch = self.model.epoch
+        self.cost = self.model.cost
         if self.model.optimization:  # If apply optimization
-            self.epoch, self.model.w, self.model.b, self.cost = min(self.model.models, key=lambda a: a[3])
+            self.epoch, self.w, self.b, self.cost = min(self.models, key=lambda a: a[3])
 
     def predict(self, x: np.ndarray) -> np.ndarray:
         """
