@@ -66,7 +66,7 @@ If time permits, we could go through some of the more advanced techniques such a
 - Prediction and calculation of MSE.
 - Visualizations of Model Performance and Relationships in Features.
 
-- **Elasticnet.py**: This file is already given in the repo that we have edited the file with the appropriate code that is needed to execute the project_1 accordingly.
+- **Elasticnet.py**: This file is already given in the repo that we have edited the file with the appropriate code that is needed to execute the project_1 te.
 - **What we have implemented in teh ElasticNet.py file?**
 - Developed the ElasticNet class from scratch and also added the gradiant descent for continuosly updating the weights and bias.
 - We have also used this file for the testing purposes which are also mentioned in the tests(test_ElasticNetModel.py)
@@ -89,9 +89,9 @@ The **auto-mpg** dataset was used for this project. The dataset contains the fol
 ## ElasticNet Implementation
 We implemented ElasticNet from scratch using gradient descent. The cost function minimized was:
 
-\[
+$$ \[
 J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2 + \alpha \left( \frac{(1 - \rho)}{2} \sum_{j=1}^{n} \theta_j^2 + \rho \sum_{j=1}^{n} |\theta_j| \right)
-\]
+\] $$ 
 
 Where:
 - \( h_\theta(x) \) is the hypothesis function.
