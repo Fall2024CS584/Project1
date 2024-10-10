@@ -1,7 +1,6 @@
 # README
-**Course:** CS584 - Machine Learning <br>
-**Instructor:** Steve Avsec<br>
-**Group Members:**
+
+**TEAM:**
 - Rakesh Reddy - A20525389
 - Geeta Hade - A20580824 
 - Nishant Khandhar - A20581012
