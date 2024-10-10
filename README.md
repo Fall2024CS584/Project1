@@ -3,7 +3,7 @@
 **Course:** CS584 - Machine Learning <br>
 **Instructor:** Steve Avsec<br>
 **Group Menbers:**
-- ssaurav@hawk.iit.edu (Saurav Singh)
+- ssaurav@hawk.iit.edu (FNU Saurav)
 - psavant@hawk.iit.edu (Pallavi Savant)
 
 ## Project Overview
