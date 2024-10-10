@@ -27,6 +27,8 @@ This project implements a ElasticNet Model, which combines L1 and L2 penalties t
       print("Numerical Predictions:", predictions)
       print("Predicted Job Roles:", predicted_job_roles)
    ```
+### Initial Data Used
+  
 ### Explanation of the Model
 1. What does the model you have implemented do and when should it be used?
 
