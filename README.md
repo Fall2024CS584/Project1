@@ -21,7 +21,7 @@ Usage examples:
 ```
 from project1 import ElasticNetModel as ENM
 
-model = ENM(100, 0.5, max_iterate = 1000, rate = 0.0001, tol = 0.001)
+model = ENM(100, 0.5, max_iterate = 1000, rate = 0.01, tol = 0.001)
 
 model.fit(x_train, y_train)
 ```
