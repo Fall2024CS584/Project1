@@ -66,3 +66,4 @@ class ElasticNetModelResults():
 
     def predict(self, X):
         return np.dot(X, self.weights) + self.bias
+
