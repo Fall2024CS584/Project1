@@ -1,7 +1,9 @@
 # Project 1 
 
 Put your README here. Answer the following questions.
-Member: Yuxuan Qian
+
+Member: Yuxuan Qian (A20484572)
+
 * __What does the model you have implemented do and when should it be used?__
 
   I did an elastic net regression model. It can be used in high-dimensional datasets that contain many characters and correlate with others.  
