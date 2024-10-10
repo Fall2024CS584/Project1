@@ -30,3 +30,5 @@ We have exposed parameters such as lambda (the regularization strength), learnin
 ### **Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?**
 
 Initially, we encountered challenges in finding a suitable dataset. Specifically, we found datasets that contained more categorical columns than numerical columns. This made it difficult to establish relationships between features and the target variable. Consequently, we focused on datasets that primarily contain numerical columns, as this helps in forming a clearer relationship with the target variable—in this case, the quality of the wine. Given more time, we could explore techniques to preprocess categorical data, but our current implementation is fundamentally designed for numerical inputs.
+
+> ### 💡 **While utilizing inbuilt libraries can simplify the model-building process, developing our own implementation provided a valuable learning experience. We enjoyed the research and exploration involved in creating the model from scratch.**

@@ -124,3 +124,39 @@ print(f"Manually calculated R-squared (R²): {r2}")
 
 # Display the first few predictions
 print("Predictions on the test set: ", predictions[:5])
+
+
+'''
+We are defining this function to tabulate the results for various lambda values and l1 ratio 
+and observe the behaviour of the model.
+The results are tabulated
+'''
+
+def evaluate_elasticnet(lamda_values, l1_ratios, X_train, y_train, X_test, y_test):
+    results = []
+    # Loop to iterate through all values of lambda and l1 ratio
+    for lamda in lamda_values:
+        for l1_ratio in l1_ratios:
+            elastic_net_model = ElasticNetModel(lamda=lamda, l1_ratio=l1_ratio, max_iter=1000, tol=1e-4)
+            model_results = elastic_net_model.fit(X_train, y_train)
+
+            predictions = model_results.predict(X_test)
+
+            # Calculation for MSE, MAE, and R²
+            mse = numpy.mean((y_test - predictions) ** 2) 
+            mae = numpy.mean(numpy.abs(y_test - predictions))
+            sst = numpy.sum((y_test - numpy.mean(y_test)) ** 2)
+            ssr = numpy.sum((y_test - predictions) ** 2)
+            r2 = 1 - (ssr / sst)                     
+
+            results.append([lamda, l1_ratio, mse, mae, r2])
+
+    return pandas.DataFrame(results, columns=['Lambda', 'L1 Ratio', 'MSE', 'MAE', 'R2'])
+
+# Set different lambda and l1_ratio values
+lamda_values = [0.1, 1.0, 100, 10000]
+l1_ratios = [0.1, 0.5, 0.9]
+
+results_df = evaluate_elasticnet(lamda_values, l1_ratios, X_train, y_train, X_test, y_test)
+results_df
+
