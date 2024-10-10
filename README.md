@@ -30,29 +30,29 @@ This project implements a ElasticNet Model, which combines L1 and L2 penalties t
 ### Explanation of the Model
 1. What does the model you have implemented do and when should it be used?
 
-  * The ElasticNetModel implemented is a type of regularized linear regression that combines both L1 and L2 regularization. 
-  * L1 Regularization (Lasso) helps in feature selection by shrinking some coefficients to zero, which is beneficial in models with high dimensionality.
-  * L2 Regularization (Ridge) tends to shrink coefficients evenly and helps in dealing with multicollinearity and model stability by keeping the coefficients small.
-  * The main reason behind using ElasticNet is to build a model with least complexity while excelling in occasions where features seem to relate or when there are more variables than cases. When it is desirable to decrease the model’s complexity with regards to the features contributing to collinearity, then ElasticNet can prove effective.
-  * ElasticNet is used when we suspect or know there is multicollinearity in your data, have a large number of features, some of which might be irrelevant, need a model that can perform feature selection to improve prediction accuracy.
+  - The ElasticNetModel implemented is a type of regularized linear regression that combines both L1 and L2 regularization. 
+  - L1 Regularization (Lasso) helps in feature selection by shrinking some coefficients to zero, which is beneficial in models with high dimensionality.
+  - L2 Regularization (Ridge) tends to shrink coefficients evenly and helps in dealing with multicollinearity and model stability by keeping the coefficients small.
+  - The main reason behind using ElasticNet is to build a model with least complexity while excelling in occasions where features seem to relate or when there are more variables than cases. When it is desirable to decrease the model’s complexity with regards to the features contributing to collinearity, then ElasticNet can prove effective.
+  - ElasticNet is used when we suspect or know there is multicollinearity in your data, have a large number of features, some of which might be irrelevant, need a model that can perform feature selection to improve prediction accuracy.
 
 
 2. How did you test your model to determine if it is working reasonably correctly?
 
-  * We evaluated our model by training it on a dataset that predicts suggested job roles.
-  * To verify the models ability to generalize, we have divided the data into training sets and testing sets.
-  * Fit the model on the training data using results = model.fit(x_train_scaled, y_train).
-  * Make predictions on the testing data using results.predict(x_test_scaled).
-  * We tested tthe model in test.py using small_data.csv and also tested it in generate_regression_data.py where we generated random data and stored it in data.csv
+  - We evaluated our model by training it on a dataset that predicts suggested job roles.
+  - To verify the models ability to generalize, we have divided the data into training sets and testing sets.
+  - Fit the model on the training data using results = model.fit(x_train_scaled, y_train).
+  - Make predictions on the testing data using results.predict(x_test_scaled).
+  - We tested tthe model in test.py using small_data.csv and also tested it in generate_regression_data.py where we generated random data and stored it in data.csv
 
 
 3. What parameters have you exposed to users of your implementation in order to tune performance?
 
-  * ```lambdas```: Controls the strength of the regularization. A higher value means more regularization.
-  * ```l1_ratio```: Balances between L1 and L2 regularization.
-  * ```iterations```: Determines the number of iterations in the gradient descent algorithm.
-  * ```learning_rate```: Controls the step size at each iteration while moving toward a minimum of the loss function.
-  * Example Usage for random generated data:
+  - ```lambdas```: Controls the strength of the regularization. A higher value means more regularization.
+  - ```l1_ratio```: Balances between L1 and L2 regularization.
+  - ```iterations```: Determines the number of iterations in the gradient descent algorithm.
+  - ```learning_rate```: Controls the step size at each iteration while moving toward a minimum of the loss function.
+  - Example Usage for random generated data:
     ```bash
         model = ElasticNetModel(lambdas=1.0, l1_ratio=0.5, iterations=1000, learning_rate=0.01)
         results = model.fit(X_scaled, y)
@@ -78,7 +78,7 @@ This project implements a ElasticNet Model, which combines L1 and L2 penalties t
 
 4. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
 
-  * Non-linear Relationships, The ElasticNetModel, being a linear model, inherently assumes that the relationships between the predictors and the response variable are linear. This assumption limits its ability to model complex, non-linear interactions effectively.
-  * High-dimensional Data, Although ElasticNet is designed to handle multicollinearity and can perform feature selection via L1 regularization, it might still struggle with very high-dimensional data (p >> n scenario), where the number of features far exceeds the number of observations.
-  * Categorical Features Handling, we used binary encoding, number encoding, dummy variable encoding in the implementation of the project, as we had more number of categorical features than numerical features in our dataset.
-  * Further regularization parameter tuning and potentially combining dimensionality reduction techniques like PCA (Principal Component Analysis) before applying ElasticNet could improve model performance.
+  - Non-linear Relationships, The ElasticNetModel, being a linear model, inherently assumes that the relationships between the predictors and the response variable are linear. This assumption limits its ability to model complex, non-linear interactions effectively.
+  - High-dimensional Data, Although ElasticNet is designed to handle multicollinearity and can perform feature selection via L1 regularization, it might still struggle with very high-dimensional data (p >> n scenario), where the number of features far exceeds the number of observations.
+  - Categorical Features Handling, we used binary encoding, number encoding, dummy variable encoding in the implementation of the project, as we had more number of categorical features than numerical features in our dataset.
+  - Further regularization parameter tuning and potentially combining dimensionality reduction techniques like PCA (Principal Component Analysis) before applying ElasticNet could improve model performance.
