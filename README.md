@@ -60,12 +60,17 @@ If time permits, we could go through some of the more advanced techniques such a
 - Visualized different model performance and characteristics of the dataset using various plots.
 
 ## Files in the Project
-- **Spandana.ipynb**: This notebook contains all code for:
+- **Spandana.ipynb**: This notebook contains all code for the below task to do. 
 - Loading and preprocessing of the data.
 - ElasticNet model - implementation and training.
 - Prediction and calculation of MSE.
 - Visualizations of Model Performance and Relationships in Features.
 
+- **Elasticnet.py**: This file is already given in the repo that we have edited the file with the appropriate code that is needed to execute the project_1 accordingly.
+- **What we have implemented in teh ElasticNet.py file?**
+- Developed the ElasticNet class from scratch and also added the gradiant descent for continuosly updating the weights and bias.
+- We have also used this file for the testing purposes which are also mentioned in the tests(test_ElasticNetModel.py)
+- 
 ## Dataset
 The **auto-mpg** dataset was used for this project. The dataset contains the following features:
 - `mpg`: Miles per gallon (target variable).
