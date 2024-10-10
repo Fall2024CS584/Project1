@@ -1,13 +1,11 @@
 import csv
-
 import numpy
-
 from elasticnet.models.ElasticNet import ElasticNetModel
 
 def test_predict():
     model = ElasticNetModel()
     data = []
-    with open("small_test.csv", "r") as file:
+    with open("auto-mpg.csv", "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
             data.append(row)
