@@ -2,5 +2,3 @@ numpy
 pytest
 ipython
 pandas
-matplotlib
-sci-kit-learn # for train test split
