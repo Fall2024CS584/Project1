@@ -42,26 +42,6 @@ def plot_residuals(y_true, y_pred, filename='residuals.png'):
     plt.savefig(filename)
     plt.close()
 
-# Plot classification decision boundaries
-def plot_classification(X, y, model, filename='classification.png'):
-    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
-    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
-    xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.01), np.arange(y_min, y_max, 0.01))
-
-    # Predict class for each point in mesh grid
-    Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
-    Z = Z.reshape(xx.shape)
-
-    # Plot decision boundary
-    plt.contourf(xx, yy, Z, alpha=0.8, cmap='coolwarm')
-
-    # Scatter plot
-    scatter = plt.scatter(X[:, 0], X[:, 1], c=y, edgecolors='k', marker='o', cmap='viridis')
-    plt.colorbar(scatter, label="Class")
-    plt.title("Classification with ElasticNet")
-    plt.savefig(filename)
-    plt.close()
-
 # Test the ElasticNet model's prediction
 def test_predict(task='regression'):
     # Initialize the model with values
