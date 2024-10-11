@@ -8,13 +8,44 @@ class ElasticNetModel():
     # The scale is used to allow the user to either scale or not scale their data and the scale range scales all the values
     # between the specified range.
     def __init__(self, lambda1 = 0.5, threshold = 0.000001, learning_rate = 0.000001, scale = False, scale_range = (-10,10)):
+        if not isinstance(lambda1, (float, int)) or lambda1 <= 0:
+            raise ValueError("lambda1 must be a positive number.")
         self.lambda1 = lambda1
+
+        if not isinstance(threshold, (float, int)) or threshold <= 0:
+            raise ValueError("threshold must be a positive number.")
         self.threshold = threshold
+
+        if not isinstance(learning_rate, (float, int)) or learning_rate <= 0:
+            raise ValueError("learning_rate must be a positive number.")
         self.learning_rate = learning_rate
-        self.scaler = MinMaxScaler(feature_range=scale_range)
+
+        if not isinstance(scale, bool):
+            raise ValueError("scale must be a boolean (True or False).")
         self.shouldScale = scale
 
+        if not (isinstance(scale_range, tuple) and len(scale_range) == 2 and
+                all(isinstance(x, (int, float)) for x in scale_range) and
+                scale_range[0] < scale_range[1]):
+            raise ValueError("scale_range must be a tuple of two numbers (min, max) where min < max.")
+        self.scaler = MinMaxScaler(feature_range=scale_range)
+
     def fit(self, A, ys):
+        if not isinstance(A, numpy.ndarray):
+            raise ValueError("A must be a numpy array.")
+        if not isinstance(ys, numpy.ndarray):
+            raise ValueError("ys must be a numpy array.")
+
+        if numpy.any(A == None):
+            raise ValueError("A contains None values.")
+        if numpy.any(ys == None):
+            raise ValueError("ys contains None values.")
+
+        if numpy.isnan(A).any():
+            raise ValueError("A contains NaN values.")
+        if numpy.isnan(ys).any():
+            raise ValueError("ys contains NaN values.")
+
         # Checks if scaling is required, if it is then scale the data
         if(self.shouldScale):
             # Scales the train data between the specified range
@@ -27,10 +58,13 @@ class ElasticNetModel():
         # Append the matrix of all ones to the data to account for the intercept
         A = numpy.c_[intercept_ones, A]
         # Get the number of rows and number of columns for the data
+        Ny,dy = ys.shape
         self.N, self.d = A.shape
         if self.N == 0:
             # If there are no rows then raise an error
             raise ValueError("Number of samples cannot be zero.")
+        if(Ny != self.N):
+            raise ValueError("Number of samples has to be same for both Target and Features")
         # Set a random staring point for the beta matrix
         self.beta = rng.normal(loc=0, scale=0.01, size=(self.d, 1))
         # Set a beta before complete with zeroes so that we can compare if we have met the required threshold
@@ -77,6 +111,8 @@ class ElasticNetModelResults():
 
     # Predicting the output using the model's coefficients:
     def predict(self, x):
+        self.check_x(x)
+
         # Scaling the features and target values if the shouldScale flag is True
         if (self.shouldScale):
             x = self.scaler.fit_transform(x)
@@ -87,8 +123,26 @@ class ElasticNetModelResults():
         x_b = numpy.c_[intercept_ones, x]
         return numpy.dot(x_b, self.beta)
 
+    def check_x(self,A):
+        if not isinstance(A, numpy.ndarray):
+            raise ValueError("A must be a numpy array.")
+        if numpy.any(A == None):
+            raise ValueError("A contains None values.")
+        if numpy.isnan(A).any():
+            raise ValueError("A contains NaN values.")
+
+    def check_y(self,ys):
+        if not isinstance(ys, numpy.ndarray):
+            raise ValueError("ys must be a numpy array.")
+        if numpy.any(ys == None):
+            raise ValueError("ys contains None values.")
+        if numpy.isnan(ys).any():
+            raise ValueError("ys contains NaN values.")
+
     # Creating a scatter plot comparing actual vs predicted values:
     def getActualVsTrueGraph(self, x, y):
+        self.check_x(x)
+        self.check_y(y)
         if (self.shouldScale):
             x = self.scaler.fit_transform(x)
             y = self.scaler.fit_transform(y)
@@ -109,6 +163,8 @@ class ElasticNetModelResults():
 
     # Creating a residual plot, which visualizes the difference between actual and predicted values:
     def getResidualGraph(self, x, y):
+        self.check_x(x)
+        self.check_y(y)
         if (self.shouldScale):
             x = self.scaler.fit_transform(x)
             y = self.scaler.fit_transform(y)

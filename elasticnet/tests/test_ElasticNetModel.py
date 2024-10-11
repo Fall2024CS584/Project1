@@ -20,6 +20,8 @@ def test_predict():
     print("Beta:")
     print(results.beta)
 
+    print(results.predict(X))
+
     # Plotting the Actual vs Predicted values:
     results.getActualVsTrueGraph(X, y)
 
