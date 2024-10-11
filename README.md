@@ -111,7 +111,7 @@ python Test_Model.py -N 100 -m 1.0 2.0 -b 0.5 -scale 0.1 -rnge 0.0 10.0 -random_
 
 ### Train Model on CSV Data:
 ```bash
-python Test_Model.py --csv_file_path "data/sample.csv" --target_column "Price"
+python Test_Model.py --csv_file_path "data/small_test.csv" --target_column "y"
 ```
 ### Running Tests
 
