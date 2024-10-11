@@ -1,10 +1,12 @@
 # Project 1 
 # Group Member - Dev Kumar(A20546714)
 # How to excute the pyhton code for Linear regression with ElasticNet regularization.
-Step 1 :- Install pyhton in your system.
-Step 2 :- Open terminal and open the directory ~/Project1_ML-CS584-/elasticnet/models
-Step 3 :- write the below commmnd in terminal:-
-pyhton ElasticNet.py
+# Step 1 :- Install python in your system.
+# Step 2 :- Open terminal and open the directory ~/Project1_ML-CS584-/ and run the below command
+# python generate_regression_data.py -N 100 -m 2 3 -b 1 -scale 0.1 -rnge 0 10 -seed 42 -output_file output.csv
+# Step 3 :- Move the output.csv file to ~/Project1_ML-CS584-/elasticnet/models/
+# Step 4 :- Open terminal and open the directory ~/Project1_ML-CS584-/elasticnet/models/ and Run the below commmnd in terminal:-
+# pyhton ElasticNet.py
 
 Put your README here. Answer the following questions.
 
@@ -12,7 +14,7 @@ Put your README here. Answer the following questions.
 Answer- The ElasticNet model implemented in the python code combines the concepts of L1 (Lasso) and L2 (Ridge) regularization in linear regression, making it effective in scenarios with many predictors and potential multicollinearity. By tuning the l1_ratio parameter, ElasticNet achieves a balance between L1 and L2 penalties, which encourages sparsity by selecting a subset of features while still providing regularization to reduce the risk of overfitting. This approach is particularly useful when there are more predictors than observations or when predictors are correlated, as it stabilizes the estimates and improves interpretability. It is well-suited for situations where feature selection is important while also retaining the regularization benefits of Ridge regression to enhance prediction accuracy.
 
 * How did you test your model to determine if it is working reasonably correctly?
-Answer- To assess the effectiveness of the ElasticNet model, I generated a synthetic dataset that establishes a clear relationship between the predictors and the response variable. After fitting the model to this dataset, I used the predict method to generate predictions. I evaluated the model's performance using the Root Mean Squared Error (RMSE), which quantifies the average difference between the predicted and actual values. A lower RMSE indicates that the model's predictions are closely aligned with the true values, demonstrating strong performance. Additionally, I observed the convergence behavior by examining the stability of the model's coefficients during training and can perform cross-validation to further assess the model's reliability across different data subsets.
+Answer- To assess the effectiveness of the ElasticNet model, I output.csv which was generated from generate_regression_data.py file and used that csv file for traininn and testing data. After fitting the model to this dataset,30% training and 70% testing, I used the predict method to generate predictions. I evaluated the model's performance using the Root Mean Squared Error (RMSE), which quantifies the average difference between the predicted and actual values. A lower RMSE indicates that the model's predictions are closely aligned with the true values, demonstrating strong performance. Additionally, I observed the convergence behavior by examining the stability of the model's coefficients during training and can perform cross-validation to further assess the model's reliability across different data subsets.
 
 * What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
 Answer- The ElasticNet implementation allows users to fine-tune model performance through several adjustable parameters. These include alpha, which controls the overall strength of the regularization; l1_ratio, which specifies the proportion between L1 and L2 regularization to influence model sparsity; tol, which sets the tolerance level for stopping criteria during training; and max_iter, which determines the maximum number of iterations for optimization. Users can easily configure these parameters by creating an instance of the model like this: model = ElasticNetModel(alpha=0.5, l1_ratio=0.8, tol=1e-4, max_iter=500). After fitting the model to the training data with results = model.fit(X_train, y_train), they can generate predictions using predictions = results.predict(X_test). To evaluate the model's performance, RMSE can be calculated with rmse = calculate_rmse(y_test, predictions). This structure provides flexibility for customizing the model based on the specific characteristics of the dataset and the desired outcomes.
