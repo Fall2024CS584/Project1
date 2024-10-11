@@ -47,47 +47,32 @@ This project is an implementation of type of Linear Regression with ElasticNet r
 - **Prediction**: Once the model is done with training, you can use the `predict` method to obtain predictions on the test datasets. This allows the model to leverage the relationships it has learned to make accurate forecasts for data that it has not encountered before.
 
 
-## 1. What does the model you have implemented do and when should it be used?
+## i.What does the model you have implemented do and when should it be used?
 
 # ElasticNet Model Overview
 
-The **ElasticNet model** enhances linear regression by incorporating both L1 and L2 norms. It's particularly useful for:
+The **ElasticNet model** enhances linear regression by incorporating both L1 and L2 regression model techniques where L1 is the lasso regression and L2 is the ridge regression. It's particularly useful when we have data where we want to **balance out bias and variance values** or if we are **handling some high-dimensional data**.
 
-- **Multicollinearity**: Reduces variance through L2 regularization when features are highly correlated.
-- **Feature selection**: The L1 norm helps in zeroing out many feature coefficients, akin to selecting features.
-- **Generalized regularization**: Combining Lasso (L1) and Ridge (L2) results offers a more adaptable solution.
+The model we generated combines both L1 and L2 to give a better solution.We have more control as we can change the values of the hyperparameters which ensures that we can arrive at the best fit solution.
 
-## When to Use ElasticNet
 
-- Handling high-dimensional data.
-- Encountering multicollinearity among features.
-- Seeking an optimal balance between bias and variance.
-
-## 2. How did you test your model to determine if it is working reasonably correctly?
+## ii. How did you test your model to determine if it is working reasonably correctly?
 # Model Testing Process
 
 The strengths of the model have been demonstrated through several test cases designed to ensure it behaves reasonably under different conditions:
 
-1. **Standard dataset test**: We ran the model using a small test CSV file (`small_test.csv`) to check for reasonable predictions. Comparing actual and predicted values showed a good correlation.
+1. **Standard dataset test**: We ran the model using a small test CSV file (`small_test.csv`) to check for reasonable predictions. Comparing actual and predicted values showed a good correlation. We also tried using a larger test CSV file (`data_long.csv`) so that we can check the accuracy by documenting the r_square values.
 
-2. **Zero variance test**: We used a dataset with a feature that had no variance (standard deviation equal to 0) to see if the model could handle this situation with finite and reasonable predictions.
+2. **Highly correlated features test**: We tested the performance with highly correlated input features to see if ElasticNet could address multicollinearity effectively.
 
-3. **Highly correlated features test**: We tested the performance with highly correlated input features to see if ElasticNet could address multicollinearity effectively.
+3. **Alpha and L1 ratio variation**: Tried different combinations of `regularization_strength` and `l1_ratio` to understand their influence on the model's behavior.
 
-4. **Sparse data test**: Provided data with many zeros to verify that regularization works as expected.
-
-5. **Outliers test**: Examined how the model behaved in the presence of outliers, aiming for bounded predictions and reasonable residual values.
-
-6. **Large dataset test**: We used a large dataset to gauge the model's scalability and robustness.
-
-7. **Alpha and L1 ratio variation**: Tried different combinations of `regularization_strength` and `l1_ratio` to understand their influence on the model's behavior.
-
-8. **Non-normalized data test**: Checked the model on non-normalized data to ensure proper normalization during training.
+4. We provided an option to change the grid paramenters so that the user can uncomment and use any one of them according to the need to test large data sets with more accuracy we have provided a small grid parameters where we can compute it in 5 to 6 s while the large grid parameter option takes around 5 mins to compute for 3000 lines of data which is 0.2 of the total.
 
 Each test calculates **Mean Squared Error (MSE)**, **Mean Absolute Error (MAE)**, and **R-squared (R2)**. Additionally, **scatter** and **residual plots** are created to visualize the model's performance.
 
 
-## 3. What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
+## iii.What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
 # Tuning ElasticNet Model Parameters
 
 The ElasticNet model exposes the following parameters for tuning performance:
@@ -99,7 +84,8 @@ The ElasticNet model exposes the following parameters for tuning performance:
 - **learning_rate**: Controls the step size during optimization, affecting the speed and stability of convergence.
 
 These parameters can be adjusted by users to better match their datasets and improve model performance.
-
+We have divided the data into two parts where 80 % of the data is for Training and 20 % is for testing the data.
+The basic usage  
 ## Basic Usage Example
 
 ```python
@@ -131,7 +117,7 @@ class ElasticNetModel:
 # score = model.score(X_test, y_test)
 ```
 
-## 4. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
+## iv. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
 
 # Specific Inputs and Workarounds
 
