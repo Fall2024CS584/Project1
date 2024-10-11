@@ -44,47 +44,40 @@ This model is useful when the dataset has many correlated features. It works whe
 - **Function**: Loads the trained model from a pickle file.
 ### <a name="_g8cjjpmf9uf8"></a>**Steps to Run the Code**
 **Preprocessing the Data**
+
 The dataset should contain only numerical features. I have written a preprocessing function to handle this. It removes non-numeric columns and handles missing values.
+
 Example:
-python
-Copy code
+
 data = pd.read\_csv('prices.csv')  # Load dataset
-
 data = preprocess\_data(data)      # Preprocess data
-
 X = data.iloc[:, :-1].values      # Feature matrix
-
 y = data.iloc[:, -1].values       # Target vector
 
 1. **Training the Model**
    To train the model, use the fit() method:
    model = ElasticNetModel(alpha=0.5, l1\_ratio=0.5, learning\_rate=0.01, num\_iterations=1000)
-
    trained\_model = model.fit(X\_train, y\_train)
 
-1. **Making Predictions**
+2. **Making Predictions**
    After training, use the predict() method to get predictions:
    predictions = trained\_model.predict(X\_test)
 
-1. **Saving the Model**
+3. **Saving the Model**
    To save the trained model:
    model.save\_model('trained\_model.pkl')
-1. **Loading the Model**
+   
+4. **Loading the Model**
    To load a saved model:
    loaded\_model = ElasticNetModel()
+   loaded\_model.load\_model('trained\_model.pkl')
 
-loaded\_model.load\_model('trained\_model.pkl')
-
-1. **Plotting the Cost Function**
+5. **Plotting the Cost Function**
    The model tracks the cost function during training. You can plot the cost history to visualize convergence:
    plt.plot(range(len(model.cost\_history)), model.cost\_history)
-
    plt.xlabel('Iterations')
-
    plt.ylabel('Cost')
-
    plt.title('Cost Function Convergence')
-
    plt.show()
 
 ## <a name="_i0m88yd97j1l"></a>**How I Tested the Model**
@@ -97,6 +90,7 @@ I generated synthetic data to check if the model works as expected. I also verif
   - Actual values: [-34.917, 2.187, -10.278, -16.017, -3.821]
   - Convergence time: 0.0575 seconds
   - Early stopping: Iteration 253
+
 ### <a name="_c565p5y2duck"></a>**Testing on Large Dataset (NYSE Prices Dataset)**
 I tested the model with a large dataset (prices.csv from the New York Stock Exchange Kaggle dataset). The model took longer to converge but worked as expected.
 
@@ -105,6 +99,7 @@ I tested the model with a large dataset (prices.csv from the New York Stock Exch
   - Actual values: [6795900, 4264000, 57652300, 1921400, 3300000]
   - Convergence time: 24.5056 seconds
   - Early stopping: Iteration 253
+ 
 ## <a name="_sovlnpqb9ecb"></a>**Model Performance**
 The model uses early stopping to improve performance. It stops training when the cost function changes very little. For small datasets, the model converges in a few iterations. For large datasets, the model takes longer to converge.
 ## <a name="_x8sh9paovzu6"></a>**Limitations of the Model**
