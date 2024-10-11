@@ -26,7 +26,16 @@ class ElasticNetModel:
         self.weights = np.zeros(num_features)
         self.bias = 0.0
 
-        self.weights, self.bias = self._optimize(features, target, self.weights, self.bias, self.learning_rate, self.iterations, self.alpha, self.l1_ratio, num_samples)
+        self.weights, self.bias = self._optimize(
+            features,
+            target,
+            self.weights,
+            self.bias,
+            self.learning_rate,
+            self.iterations,
+            self.alpha,
+            self.l1_ratio,
+            num_samples)
 
     @staticmethod
     @jit(nopython=True, nogil=True)
@@ -40,7 +49,7 @@ class ElasticNetModel:
         alpha: float,
         l1_ratio: float,
         num_samples: int) -> Tuple[np.ndarray, float]:
-        
+
         for _ in range(iterations):
             predictions = np.dot(features, weights) + bias
             errors = predictions - target
