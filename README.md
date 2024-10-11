@@ -47,7 +47,7 @@ This project is an implementation of a type of Linear Regression with ElasticNet
 - **Prediction**: Once the model is done with training, you can use the `predict` method to obtain predictions on the test datasets. This allows the model to leverage the relationships it has learned to make accurate forecasts for data that it has not encountered before.
 
 
-## i.What does the model you have implemented do and when should it be used?
+## 1. What does the model you have implemented do and when should it be used?
 
 ### ElasticNet Model Overview
 
@@ -56,7 +56,7 @@ The **ElasticNet model** enhances linear regression by incorporating both L1 and
 The model we generated combines both L1 and L2 to give a better solution.We have more control as we can change the values of the hyperparameters which ensures that we can arrive at the best fit solution.
 
 
-## ii. How did you test your model to determine if it is working reasonably correctly?
+## 2. How did you test your model to determine if it is working reasonably correctly?
 ### Model Testing Process
 
 The strengths of the model have been demonstrated through several test cases designed to ensure it behaves reasonably under different conditions:
@@ -72,7 +72,7 @@ The strengths of the model have been demonstrated through several test cases des
 Each test calculates **Mean Squared Error (MSE)**, **Mean Absolute Error (MAE)**, and **R-squared (R2)**. Additionally, **scatter** and **residual plots** are created to visualize the model's performance.
 
 
-## iii.What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
+## 3. What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
 ### Tuning ElasticNet Model Parameters
 
 The ElasticNet model exposes the following parameters for tuning performance:
@@ -106,7 +106,7 @@ The ElasticNet model exposes the following parameters for tuning performance:
     max_iterations_values = [1000]
 ```
 
-## iv. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
+## 4. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
 
 ### Specific Inputs:
 
@@ -120,24 +120,27 @@ The ElasticNet model exposes the following parameters for tuning performance:
 
 - **Choice of Hyperparameters**: Given more time, We added more choices in the hyperparemeters and made it more user controlled, We also esured that all the choices were considered the best fit for the model was also displayed. Incorporating features such as polynomial feature generation and plots helped us analyse the respective outputs.
 
-### Output:
-Ran with 2 datasets
+### Code Visualization:
+- The following screenshots display the results of each test case implemented in this project:
+
 ## 1. Small_test.csv:
-i.
+- Tests the model on a small dataset, and verifies if the predictions are reasonable.
+- i. Training Loss:
     ![Small Test Image](small_test1.jpeg)
-ii.
+- ii. Predicted vs Actual:
     ![Small Test Image](small_test2.jpeg)
-iii.
+- iii. Residual plots:
     ![Small Test Image](small_test3.jpeg)
-iv. 
+- iv. Final Results:
     ![Small Test Image](small_test_output.jpeg)
 
 ## 2. data_long.csv:
-i.
+- Tests the model on a large dataset, and verifies if the predictions are reasonable.
+- i. Training Loss:
     ![Long Data Test Image](large_data1.jpeg)
-ii.
+- ii. Predicted vs Actual:
     ![Long Data Image](large_data2.jpeg)
-iii.
+- iii. Residual plots:
     ![Long Data Image](large_data3.jpeg)
-iv. 
+- iv. Final Results:
     ![Small Test Image](large_data_output.jpeg)
