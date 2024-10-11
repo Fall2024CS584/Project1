@@ -18,7 +18,7 @@ ElasticNet is particularly useful when you want to balance feature selection and
 ## Testing
 The model has been validated using several testing strategies:
 
-- **Real-World Data Testing:** The model was tested on datasets with numerical features from real-world data sources, such as drug.csv, Spotify_Most_Streamed, user_behavior_datset, weather_data.csv. Performance was evaluated using metrics like Mean Absolute Error (MAE) for regression and accuracy for classification.
+- **Real-World Data Testing:** The model was tested on datasets with numerical features from real-world data sources, such as Spotify_Most_Streamed, user_behavior_datset, weather_data.csv. Performance was evaluated using metrics like Mean Absolute Error (MAE) for regression and accuracy for classification.
 - **Pathological Cases:** To ensure robustness, the model was tested on synthetic datasets designed to challenge typical algorithms:
   - **High Dimensionality:** Datasets where the number of features greatly exceeds the number of samples.
   - **Zero Variance Features:** Datasets containing features with no variability.
