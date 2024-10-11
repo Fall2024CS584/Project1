@@ -1,6 +1,19 @@
+
 # Project 1 
 
-Put your README here. Answer the following questions.
+Project Members:
+
+1.Satwik Sinha
+A20547790
+ssinha20@hawk.iit.edu
+
+2.Aditya Ramchandra Kutre  
+CWID : #A20544809
+akutre@hawk.iit.edu
+
+3.Tejaswi Yerra
+CWID : #A20545536
+tyerra@hawk.iit.edu
 
 # ElasticNet Linear Regression Implementation
 
