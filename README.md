@@ -43,6 +43,7 @@ py .\testDataGenerator.py -N 150 -f 8 -c 5 -seed 10000 -output_file generated_da
 ### Step 2: Run the Program
 
 Execute the final LDA model which is model folder:
+Note: Place the generated_data.csv(the data you want to train and test ) in the models folder to run this program else you can run Final_LDA.ipynb directly without any changes by placing the training data named as generated_data.csv.
 
  ```bash
 py .\finalLDA.py
