@@ -1,0 +1,18 @@
+Best R² Score: 0.9887113568818682
+Best Hyperparameters: {'regularization_strength': 0.1, 'l1_ratio': 0.5, 'learning_rate': 0.01, 'max_iterations': 1000}
+Total number of predicted values: 3000
+Predicted values: [12.26781717  8.87515958 15.61695438 ... 14.98777201 10.7556034
+  5.019707  ]
+Actual values: [12.30484596  8.32094416 16.03569987 ... 15.30970911 10.5781752
+  4.03673413]
+Differences: [0.03702879 0.55421542 0.41874549 ... 0.32193711 0.17742819 0.98297287]
+Model Summary:
+Intercept: 12.00849875191871
+Coefficients: [3.86544261 1.26678141]
+Number of iterations: 1000
+Final loss: 1.3163719320861063
+Final R² Score: 0.9887113568818682
+Residuals: [-0.03702879  0.55421542 -0.41874549 ... -0.32193711  0.17742819
+  0.98297287]
+Mean Residual: -0.005037729545604678
+Standard Deviation of Residuals: 0.48516459122309363
