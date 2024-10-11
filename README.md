@@ -175,51 +175,51 @@ __Output__ :-
 
 __Input__ :-
 
-![Project Screenshot](elasticnet/images/1_alpha_input.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/8_nan_input.png "Screenshot of the Project")
 
 __Output__ :- 
 
-![Project Screenshot](elasticnet/images/1_alpha_output.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/8_nan_output.png "Screenshot of the Project")
 
 * y cntains NaN values
 
 __Input__ :-
 
-![Project Screenshot](elasticnet/images/1_alpha_input.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/9_y_input.png "Screenshot of the Project")
 
 __Output__ :- 
 
-![Project Screenshot](elasticnet/images/1_alpha_output.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/9_y_output.png "Screenshot of the Project")
 
 * Model is not fitted yet, ensure we call fit with appropriate arguments before using 'predict'
 
 __Input__ :-
 
-![Project Screenshot](elasticnet/images/1_alpha_input.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/10_model_input.png "Screenshot of the Project")
 
 __Output__ :- 
 
-![Project Screenshot](elasticnet/images/1_alpha_output.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/10_model_output.png "Screenshot of the Project")
 
 * X must be a numpy array
 
 __Input__ :-
 
-![Project Screenshot](elasticnet/images/1_alpha_input.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/11_numpy_input.png "Screenshot of the Project")
 
 __Output__ :- 
 
-![Project Screenshot](elasticnet/images/1_alpha_output.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/11_numpy_output.png "Screenshot of the Project")
 
 * X contains NaN values
 
 __Input__ :-
 
-![Project Screenshot](elasticnet/images/1_alpha_input.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/12_nan_input.png "Screenshot of the Project")
 
 __Output__ :- 
 
-![Project Screenshot](elasticnet/images/1_alpha_output.png "Screenshot of the Project")
+![Project Screenshot](elasticnet/images/12_nan_output.png"Screenshot of the Project")
 
 ### 2.2 Test case 1:
 __small_test.csv__ 
@@ -227,19 +227,21 @@ __small_test.csv__
 2. __Model Training and Prediction__: An ElasticNet model is trained on the standardized training data, and predictions are made on both the training and test sets.
 3. __Performance Evaluation__: The script calculates and prints key evaluation metrics such as Mean Squared Error (MSE) and R-squared for both the training and testing data, giving insights into the model’s accuracy.
 4. __Visualization__: A scatter plot is generated to compare the actual vs predicted values for the test set, using one of the selected features from the dataset on the x-axis.
-5. __Dataset__: The dataset contains a set of features labeled as x1, x2, etc., and a target variable y that we are trying to predict. The goal is to assess the performance of the ElasticNet model in predicting y based on the input features.
+5. __Dataset__: The dataset contains a set of features labelled as x1, x2, etc., and a target variable y that we are trying to predict. The goal is to assess the performance of the ElasticNet model in predicting y based on the input features.
 6. Parameters set:
-    * alpha 
-    * l1_ratio
-    * learning_rate
-    * max_iter
-    * tol
+    * alpha : 35
+    * l1_ratio : 0.7
+    * learning_rate : 0.001
+    * max_iter : 5000
+    * tol : 1e-5
 
 The R2 and MSE given by the model for the small_test.csv dataset
 
-Heatmap showing us the correlation amongst the features
+![Project Screenshot](elasticnet/images/small_test_evaluation.jpeg "Screenshot of the Project")
 
 plot comparing the actual and predicted values: 
+
+![Project Screenshot](elasticnet/images/small_test_plot.jpeg "Screenshot of the Project")
 
 
 ### 2.3 Test case 2:
@@ -249,17 +251,19 @@ __synthetic dataset__:
 3. Model Training and Prediction: An ElasticNet model is trained on the standardized training data, and predictions are made on the test data.
 4. Evaluation and Visualization: The model’s performance is evaluated using Mean Squared Error (MSE) and R-squared metrics, and a scatter plot is created to compare actual vs predicted values based on one selected feature.
 5.  Parameters set:
-    * alpha
-    * l1_ratio
-    * learning_rate
-    * max_iter
-    * tol
+    * alpha : 45
+    * l1_ratio : 0.4
+    * learning_rate : default
+    * max_iter : default
+    * tol : default
 
 The R2 and MSE given by the model for the synthetic dataset
 
-Heatmap showing us the correlation amongst the features
+![Project Screenshot](elasticnet/images/synthetic_evaluation.jpeg "Screenshot of the Project")
 
 plot comparing the actual and predicted values: 
+
+![Project Screenshot](elasticnet/images/synthetic_plot.jpeg "Screenshot of the Project")
 
 ### 2.4 Test case 3: 
 __California housing dataset__ : The California Housing dataset contains features like longitude, latitude, housing_median_age, and median_income, describing housing and demographic information. The goal is to build a predictive model to estimate median_house_value, offering insights into how housing characteristics affect prices in California.
@@ -270,17 +274,23 @@ __California housing dataset__ : The California Housing dataset contains feature
     * The test class generates a scatter plot comparing actual vs predicted house values against a selected feature, providing insight into the model's performance for that feature.
     * The heatmap in the notebook is a correlation matrix that shows the strength of relationships between features in the California Housing dataset, highlighting how features like median_income and total_rooms are correlated with each other and with median_house_value, helping to identify key features for model improvement.
 5. Parameters set:
-    * alpha
-    * l1_ratio
-    * learning_rate
-    * max_iter
-    * tol
+    * alpha : 30
+    * l1_ratio : 0.7
+    * learning_rate : default
+    * max_iter : default
+    * tol : default
 
-The R2 and MSE given by the model for the california hosuing dataset:
+The R2 and MSE given by the model for the california housing dataset:
 
-Heatmap showing us the correlation amongst the features
+![Project Screenshot](elasticnet/images/california_evaluation.png "Screenshot of the Project")
 
-plot comparing the actual and predicted values: 
+Heatmap showing us the correlation amongst the features:
+
+![Project Screenshot](elasticnet/images/california_plot_1.png "Screenshot of the Project")
+
+Plot comparing the actual and predicted values: 
+
+![Project Screenshot](elasticnet/images/california_plot_2.jpeg "Screenshot of the Project")
 
 ### 2.5 Test case 4:
 __Netflix stock prediction dataset__: 
@@ -290,16 +300,23 @@ __Netflix stock prediction dataset__:
 4. Evaluating Model Performance: The model's performance is evaluated using Mean Squared Error (MSE) and R-squared metrics for both training and test sets. A plot is also generated to compare actual vs predicted stock prices using the Close price as the primary feature.
 5. Correlation matrix- The correlation matrix shows that all price-related features (Open, High, Low, Close, Adjusted Close) are strongly positively correlated, while Volume has a slight negative correlation with these prices.
 6. Parameters set:
-    * alpha
-    * l1_ratio
-    * learning_rate
-    * max_iter
-    * tol
+    * alpha: 40
+    * l1_ratio : 0.6
+    * learning_rate : default
+    * max_iter : 2000
+    * tol : default
+      
 The R2 and MSE given by the model for the netflix stock prediction dataset:
 
-Heatmap showing us the correlation amongst the features
+![Project Screenshot](elasticnet/images/netflix_evaluation_metrics.jpeg "Screenshot of the Project")
 
-plot comparing the actual and predicted values: 
+Plot comparing the actual and predicted values: 
+
+![Project Screenshot](elasticnet/images/netflix_plot_1.jpeg "Screenshot of the Project")
+
+Heatmap showing us the correlation amongst the features:
+
+![Project Screenshot](elasticnet/images/netflix_plot_2.jpeg "Screenshot of the Project")
 
 ## 3. Parameters to tune performance:
 What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
