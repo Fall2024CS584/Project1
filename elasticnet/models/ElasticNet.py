@@ -2,28 +2,30 @@ import numpy as np
 import pandas as pd
 
 class ElasticNetModel:
-    def __init__(self, alpha=1.0, l1_ratio=0.5, max_iter=2000, convergence_criteria=1e-4, step_size=0.005, bias_term=True):
+    def __init__(self, **kwargs):
+        defaults = {
+            'alpha': 1.0,
+            'l1_ratio': 0.5,
+            'max_iter': 2000,
+            'convergence_criteria': 1e-4,
+            'step_size': 0.005,
+            'bias_term': True
+        }
+        defaults.update(kwargs)
         self.parameter_values = None
         self.average_value = None
         self.standard_deviation = None
-        self.alpha = alpha
-        self.l1_ratio = l1_ratio
-        self.max_iter = max_iter
-        self.convergence_criteria = convergence_criteria
-        self.step_size = step_size
-        self.bias_term = bias_term
+
+        for key, value in defaults.items():
+            setattr(self, key, value)
+
 
 
     def fit(self, X, y, categorical_features=None):
         y = y.astype(float).flatten() 
         X = X.astype(float)
-        
-
-         # Transform into a DataFrame to facilitate the management of categorical data.
         X = pd.DataFrame(X)
-
-        # Apply one-hot encoding to the categorical features
-        X = pd.get_dummies(X, columns=categorical_features, drop_first=True)
+        X = pd.get_dummies(X,  drop_first=True, columns=categorical_features,)
 
         # Scaling the features to a standard format.
         self.average_value = X.mean(axis=0)
@@ -45,10 +47,14 @@ class ElasticNetModel:
             if self.bias_term:
                 self.parameter_values[0] -= self.step_size * derivative_array[0]
                 derivative_array = derivative_array[1:]
-            # L1 and L2 Regularization
-            self.parameter_values[1:] -= self.step_size * (
-                derivative_array + self.alpha * (self.l1_ratio * np.sign(self.parameter_values[1:]) + (1 - self.l1_ratio) * self.parameter_values[1:])
-            )
+
+            p = self.parameter_values[1:]
+            l1 = self.l1_ratio * np.sign(p)
+            l2 = (1 - self.l1_ratio) * p
+            reg = self.alpha * (l1 + l2)
+            upd = self.step_size * (derivative_array + reg)
+            self.parameter_values[1:] -= upd
+
 
             if np.linalg.norm(derivative_array, ord=1) < self.convergence_criteria:
                 break
