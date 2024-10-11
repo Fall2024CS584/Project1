@@ -1,8 +1,8 @@
 # Project 1 Team Members
-    #Bezawada Sai Sravanya - A20561552
-    #Karuturi Veerendra Gopichand - A20529571
-    #Praveen Kumar Gude - A20546614
-    #Abharnah Rajaram Mohan - A20546967
+    Bezawada Sai Sravanya - A20561552
+    Karuturi Veerendra Gopichand - A20529571
+    Praveen Kumar Gude - A20546614
+    Abharnah Rajaram Mohan - A20546967
 
 
 ## What does the model you have implemented do and when should it be used?
