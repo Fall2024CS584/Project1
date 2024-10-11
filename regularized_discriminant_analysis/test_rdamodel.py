@@ -27,7 +27,7 @@ def test_predict():
     y_test = y[train_size:]
 
 # Initialize the RDA model
-rda = RDAmodel(regularization_param=0.5)
+rda = RDAModel(regularization_param=0.5)
 
 # Train the model using X_train and y_train
 rda.fit(X_train, y_train)
