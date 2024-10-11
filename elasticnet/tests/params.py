@@ -1,7 +1,8 @@
 # All User parameter can be adjusted from here.
 
-# User picked data type to use : [options] "file", "synthetic", "multi_collinear"
-data_selection = "multi_collinear"  # Default is "synthetic"
+"""
+ Dataset configuration
+"""
 
 # User defined params for data import setting
 data_file_params = {
@@ -31,6 +32,13 @@ data_mul_params = {
     "random_state": 42,  # Random seed
     "test_ratio": 0.3,  # Portion of the test set from total sample.
 }
+
+"""
+ Training configuration 
+"""
+
+# User picked data type to use : [options] "file", "synthetic", "multi_collinear"
+data_selection = "multi_collinear"  # Default is "synthetic"
 
 # User defined params for training model
 test_params = {

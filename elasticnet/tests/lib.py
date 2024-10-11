@@ -1,6 +1,6 @@
 import numpy as np
 import csv
-from params import *
+from elasticnet.tests.params import *
 
 # Collection of auxiliary functions
 

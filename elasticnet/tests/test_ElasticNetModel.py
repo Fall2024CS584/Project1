@@ -1,5 +1,5 @@
 from elasticnet.models.ElasticNet import *
-from lib import *
+from elasticnet.tests.lib import *
 
 
 def test_predict():
@@ -7,7 +7,8 @@ def test_predict():
     # Please set data type to the 'data_selection' variable located in 'elasticnet/tests/params.py'
     # If no value, or invalid option has been set, then it automatically chooses 'synthetic'
 
-    print("\n", "=" * 100)
+    print()
+    print("=" * 100)
 
     # Call data
     train_x, train_y, test_x, test_y, weights, bias = get_data()

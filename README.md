@@ -66,3 +66,17 @@ Since the description of each function and execution is written in comments, onl
 - Please perform parameter adjustment before execution in **elasticnet/tests/params.py**.
   - It is important to keep a record of previously used parameters so that they are set so that they are not missed. 
 - Both training data type should be in right numeric format. Only string to number conversion and shape conversion has been included.
+
+#### Sample execution
+1. Adjust configuration parameter in **elasticnet/tests/param.py** (below line 36)
+
+![parameter-setting.png](parameter-setting.png)
+
+   - data_selection: data type you wish to pick [options] "file", "synthetic", "multi_collinear"
+   - test_params: train model parameters
+2. Execute **main.py**
+
+![execution.png](execution.png)
+   
+   - Internally it executes the function ***test_predict*** in **elasticnet/tests/test_ElasticNetModel.py**
+3. Also attached as **sample_result.txt**
