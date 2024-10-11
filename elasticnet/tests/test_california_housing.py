@@ -52,8 +52,8 @@ class ElasticNetTest:
     def train_and_evaluate(self):
         # Initialize and train the model
         self.model = ElasticNetModel(
-            alpha=0.1,
-            l1_ratio=0.5,
+            alpha=30,
+            l1_ratio=0.7,
             learning_rate=0.01,
             max_iter=1000,
             tol=1e-4

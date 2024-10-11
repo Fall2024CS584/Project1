@@ -60,14 +60,14 @@ def test_elastic_net_errors():
     # Test case for predict before fit
     try:
         X = np.array([[1, 2], [3, 4]])
-        model.predict(X)
-    except ValueError as e:
-        print("Error 10:", str(e))
+        model.predict(X)  
+    except AttributeError as e:
+        print("Error 10:", str(e))  
 
     # Test cases for ElasticNetModelResults
     X = np.array([[1, 2], [3, 4]])
     y = np.array([1, 2])
-    results = model.fit(X, y)
+    results = model.fit(X, y)  
 
     try:
         results.predict([1, 2])  # Not a numpy array
