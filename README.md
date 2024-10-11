@@ -40,30 +40,6 @@ The following parameters can be tuned by users to control the model's performanc
 - **max_iter**: This defines the maximum number of iterations the model will take to converge during optimization.
 - **tol**: The tolerance for optimization. Smaller values can lead to more accurate solutions but may take longer to compute.
 
-### Usage Example:
-
-To train the model and generate predictions:
-```python
-from ElasticNet import ElasticNetModel
-from metrics import mean_squared_error
-
-# Load your dataset
-X, y = load_data("path/to/your/data.csv")
-
-# Initialize the model with parameters
-model = ElasticNetModel(alpha=0.1, rho=0.5, max_iter=1000, tol=1e-4)
-
-# Fit the model
-model.fit(X, y)
-
-# Generate predictions
-preds = model.predict(X)
-
-# Evaluate performance
-mse = mean_squared_error(y, preds)
-print(f"Mean Squared Error: {mse}")
-```
-
 ## 4. Are there specific inputs that your implementation has trouble with?
 
 ### Problematic Inputs:
