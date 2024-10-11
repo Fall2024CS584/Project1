@@ -182,7 +182,13 @@ Here are the results from the model after training:
     ```
 
 ### Visualization of Results
-The following plot illustrates the comparison between actual and predicted values compared with SkLearn Model:
+The following plot illustrates the comparison between actual and predicted values compared with SkLearn Model on waves35 dataset:
 
-![Actual vs Predicted Values Comparison]([https://github.com/AtharvPat/ML-Project_-1-/blob/main/Results/output.png](https://github.com/AtharvPat/ML-Project_-1-/blob/main/PROJECT/Notebooks/Visilizuations/genData%20visulaization.png))
+![Actual vs Predicted Values Comparison](https://github.com/AtharvPat/ML-Project-1/blob/main/Notebook/Visilizuations/genData%20visulaization.png)
+
+The following plot illustrates the comparison between Evaluation matrices of Our ElasticNet Model and SkLearn Model on Waves35 dataset:
+![Actual vs Predicted Values Comparison](https://github.com/AtharvPat/ML-Project-1/blob/main/Notebook/Visilizuations/Waves35%20metrisc%20comparision%20.png )
+
+The Following plot is the Values of MSE, MAE and RSquared Error for all different trypes of data we used to test it: 
+![Actual vs Predicted Values Comparison](https://github.com/AtharvPat/ML-Project-1/blob/main/Notebook/Visilizuations/metrices%20evaluations.png)
 
