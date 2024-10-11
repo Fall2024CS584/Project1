@@ -3,8 +3,8 @@
 **Course:** CS584 - Machine Learning <br>
 **Instructor:** Steve Avsec<br>
 **Group Menbers:**
-- ssaurav@hawk.iit.edu (FNU Saurav)
-- psavant@hawk.iit.edu (Pallavi Savant)
+- ssaurav@hawk.iit.edu (FNU Saurav) - A20536122
+- psavant@hawk.iit.edu (Pallavi Savant) - A20540976
 
 ## Project Overview
 Linear regression with ElasticNet regularization (combination of L2 and L1 regulariza-
@@ -31,7 +31,7 @@ pip install numpy pandas matplotlib
 
 ## Usage
  ```bash
- Python main.py
+ python generate_regression_data.py -N 100 -m 1.5 2.0 -b 3.0 -scale 0.5 -rnge -10 10 -seed 42 -output_file output.csv
  ```
 
 ## Model Functions:
