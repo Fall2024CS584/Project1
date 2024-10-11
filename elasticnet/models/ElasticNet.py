@@ -49,17 +49,58 @@ class ElasticNetModel:
 
     def cost_function(self, y, y_pred):
         """
-        Computing the cost function of the given weights
+        cost_function()
+        This function computes the cost function of the given weights
+        Formula used:
+            C(β) = MSE + L1 + L2
+                 = [(1/2N)*∑(y_i - y_pred_i)²] + [α * ρ * ∑|β_i|] + [(1/2) * α * (1-ρ) * ∑(β_i)²]
+        where:
+            N        : Number of samples
+            y_i      : actual weight of ith feature
+            y_pred_i : predicted weight of ith feature
+            β_i      : weight of ith feature
+            α        : alpha parameter
+            ρ        : rho parameter, L1 ratio
+
         :param y: Original target value
         :param y_pred: predicted target value
         :return computed cost function
         """
         l1_penalty = self.l1_lambda * np.sum(np.abs(self.w))
-        l2_penalty = self.l2_lambda * 0.5 * np.sum(np.square(self.w))
-        return 1 / (2 * self.ns) * np.sum(np.square(y_pred - y)) + (l1_penalty + l2_penalty)
+        l2_penalty = self.l2_lambda * 0.5 * np.sum(self.w ** 2)
+        return 1 / (2 * self.ns) * np.sum((y_pred - y) ** 2) + (l1_penalty + l2_penalty)
 
     def update_weights(self) -> float:
         """
+        update_weights()
+        This function updates weights according to gradient descent. In the case of L1 regulation,
+        each weight must be reviewed to see if it satisfies the soft thresholding condition,
+        so it is reflected for each weight.
+        Formula used:
+            * Weight(jth) update
+            dC(β_j)/d(β_j) = MSE_β_j + L1_β_j + L2_β_j
+                 = [(-1/N) * ∑(X_ij)*(y_i - y_pred_i)] + [α * ρ * sign(β_j)] + [α * (1 - ρ) * β_j]
+            β = β - (learning_rate)*dβ
+
+            * Bias update
+            dC(β_0)/d(β_0) = MSE_β_0
+                = (-1/N) * ∑(y_i - y_pred_i)
+            β_0(bias) = β - (learning_rate)*dβ
+
+            * Soft Thresholding(jth)
+               - If the absolute value of the weight is greater than λ_1, adjust it by λ_1.
+               - In other cases, the weight is set to 0.
+                β_j = sign(β_j) * max(|β_j| - L1_β_j, 0)
+                    = sign(β_j) * max(|β_j| - α * ρ, 0)
+        where:
+            N        : Number of samples
+            y_i      : actual weight of ith feature
+            y_pred_i : predicted weight of ith feature
+            β_i      : weight of ith feature
+            β_0      : constant, bias factor
+            α        : alpha parameter
+            ρ        : rho parameter, L1 ratio * λ_1 = α * ρ, λ_2 = α * (1-ρ)
+            sign(β_j): Return 1 if jth feature is positive, -1 if jth feature is negative, otherwise returns 0
 
         :return: cost function of the current trial
         """
@@ -71,7 +112,6 @@ class ElasticNetModel:
         # should collect the derivation due to L1
         for j in range(self.nf):
             MSE = - np.dot(self.X[:, j], residuals) / self.ns
-
             L1 = self.l1_lambda * np.sign(self.w[j])  # L1 penalty
             L2 = self.l2_lambda * self.w[j]  # L2 penalty
             # Update the gradient with MSE, L1, and L2
