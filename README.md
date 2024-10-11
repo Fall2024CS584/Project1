@@ -123,7 +123,7 @@ The ElasticNet model exposes the following parameters for tuning performance:
 ### Code Visualization:
 - The following screenshots display the results of each test case implemented in this project:
 
-## 1. Small_test.csv:
+### 1. Small_test.csv:
 - Tests the model on a small dataset, and verifies if the predictions are reasonable.
 - i. Training Loss:
     ![Small Test Image](small_test1.jpeg)
@@ -134,7 +134,7 @@ The ElasticNet model exposes the following parameters for tuning performance:
 - iv. Final Results:
     ![Small Test Image](small_test_output.jpeg)
 
-## 2. data_long.csv:
+### 2. data_long.csv:
 - Tests the model on a large dataset, and verifies if the predictions are reasonable.
 - i. Training Loss:
     ![Long Data Test Image](large_data1.jpeg)
