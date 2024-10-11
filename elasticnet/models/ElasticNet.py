@@ -40,7 +40,6 @@ class ElasticNetModel():
         return dw, db
 
     def fit(self, X, y):
-        # Check for missing values and raise an error if found
         if np.isnan(X).any() or np.isnan(y).any():
             raise ValueError("Input data contains NaN values. Please handle missing data before training.")
 
@@ -48,7 +47,6 @@ class ElasticNetModel():
         self.weights = np.zeros(n_features)
         self.bias = 0
 
-        # Start timing the convergence
         start_time = time.time()
 
         for i in range(self.num_iterations):
@@ -57,14 +55,12 @@ class ElasticNetModel():
             self.bias -= self.learning_rate * db
             cost = self._compute_cost(X, y, self.weights, self.bias)
             
-            # Early stopping if cost change is less than the tolerance
             if i > 0 and abs(self.cost_history[-1] - cost) < self.tolerance:
                 print(f"Early stopping at iteration {i} due to small cost change.")
                 break
 
             self.cost_history.append(cost)
 
-        # End timing
         self.convergence_time = time.time() - start_time
         return ElasticNetModelResults(self.weights, self.bias)
 
@@ -86,13 +82,11 @@ class ElasticNetModelResults():
     def predict(self, X):
         return X.dot(self.weights) + self.bias
 
-# Custom scaling function
 def custom_scaler(X):
     mean = np.mean(X, axis=0)
     std = np.std(X, axis=0)
     return (X - mean) / std, mean, std
 
-# Custom train-test split function
 def custom_train_test_split(X, y, test_size=0.2, random_state=None):
     if random_state is not None:
         np.random.seed(random_state)
@@ -105,18 +99,15 @@ def custom_train_test_split(X, y, test_size=0.2, random_state=None):
     
     return X[train_indices], X[test_indices], y[train_indices], y[test_indices]
 
-# Function to preprocess data, ensuring only numerical data is used
 def preprocess_data(data):
     data = data.select_dtypes(include=[np.number])
     data = data.dropna()
     return data
 
 def run_test():
-    # Load the dataset (replace with your actual file path)
     data = pd.read_csv('/content/small_test.csv')
     data = preprocess_data(data)
 
-    # Assuming the last column is the target
     X = data.iloc[:, :-1].values
     y = data.iloc[:, -1].values
 
@@ -150,7 +141,6 @@ def run_test():
 class TestElasticNetModel(unittest.TestCase):
 
     def plot_cost_convergence(self, model, title):
-        # Function to plot cost convergence
         plt.plot(range(len(model.cost_history)), model.cost_history)
         plt.xlabel('Iterations')
         plt.ylabel('Cost')
@@ -169,7 +159,6 @@ class TestElasticNetModel(unittest.TestCase):
         self.assertEqual(predictions.shape, y_synthetic.shape)
         self.assertLess(model.cost_history[-1], model.cost_history[0])
 
-        # Plot cost convergence for this test case
         self.plot_cost_convergence(model, "Cost Convergence: Synthetic Data")
 
     def test_save_and_load_model(self):
