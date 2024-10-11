@@ -89,8 +89,7 @@ class ElasticNetRegressionUpdated:
     def predict(self, X):
         pass
 ```
-- **Purpose:** Implement a custom ElasticNet regression algorithm, combining L1 and L2 penalties. This regularization technique is used to manage overfitting and improve prediction accuracy.
-- 
+- **Purpose:** Implement a custom ElasticNet regression algorithm, combining L1 and L2 penalties. This regularization technique is used to manage overfitting and improve prediction accuracy. 
 
 #### 4.7 Model Training
 ```python
