@@ -2,16 +2,16 @@ import numpy as np
 
 class ElasticNetModel:
     def __init__(self, regularization_strength, l1_ratio, max_iterations, tolerance=1e-6, learning_rate=0.01):
-        """
-        Set up the ElasticNet regression model.
+#  
+#         Set up the ElasticNet regression model.
 
-        Parameters used in the model are:
-        regularization_strength: Regularization strength (λ or also called alpha)
-        l1_ratio: The balance between L1 and L2 ratios. It ranges from 0 to 1 where 0(pure Ridge) and 1(pure lasso).
-        max_iterations: Maximum number of iterations allowed for gradient descent process
-        tolerance: Threshold. criteria where it determines when to exit the process
-        learning_rate: Step size for updating coefficients during gradient descent process
-        """
+#         Parameters used in the model are:
+#         regularization_strength: Regularization strength (λ or also called alpha)
+#         l1_ratio: The balance between L1 and L2 ratios. It ranges from 0 to 1 where 0(pure Ridge) and 1(pure lasso).
+#         max_iterations: Maximum number of iterations allowed for gradient descent process
+#         tolerance: Threshold. criteria where it determines when to exit the process
+#         learning_rate: Step size for updating coefficients during gradient descent process
+     
         self.reg_strength = regularization_strength
         self.l1_ratio = l1_ratio
         self.max_iterations = max_iterations
@@ -29,12 +29,12 @@ class ElasticNetModel:
         return squared_error_loss + self.reg_strength * (l1_regularization + l2_regularization)
 
     def fit(self, X, y):
-        """
-        Train the model on the data by applying gradient descent
-        Parameters used in this method are:
-        X: Feature matrix (n_samples, n_features)
-        y: Target vector (n_samples,)
-        """
+     
+        # Train the model on the data by applying gradient descent
+        # Parameters used in this method are:
+        # X: Feature matrix (n_samples, n_features)
+        # y: Target vector (n_samples,)
+      
         n_samples, n_features = X.shape
 
         # Normalize the features
@@ -76,17 +76,17 @@ class ElasticNetModel:
 
 class ElasticNetModelResults:
     def __init__(self, coefficients, intercept, feature_mean, feature_std, loss_history):
-        """
-        Wraps the outcomes of the ElasticNet model following the fitting process.
+    
+        # Wraps the outcomes of the ElasticNet model following the fitting process.
 
-        Parameters used in the method are:
+        # Parameters used in the method are:
 
-        coefficients: Coefficients obtained from fitting the model.
-        intercept: Intercept value determined during model fitting.
-        feature_mean: Average value of the features (utilized for normalization).
-        feature_std: Standard deviation of the features (utilized for normalization).
-        loss_history: Record of the loss values tracked throughout the training process.
-        """
+        # coefficients: Coefficients obtained from fitting the model.
+        # intercept: Intercept value determined during model fitting.
+        # feature_mean: Average value of the features (utilized for normalization).
+        # feature_std: Standard deviation of the features (utilized for normalization).
+        # loss_history: Record of the loss values tracked throughout the training process.
+       
         self.coefficients = coefficients
         self.intercept = intercept
         self.feature_mean = feature_mean
@@ -94,31 +94,31 @@ class ElasticNetModelResults:
         self.loss_history = loss_history
 
     def predict(self, X):
-        """
-        Generate predicteds target values based on the provided input features
+       
+        # Generate predicteds target values based on the provided input features
         
-        Parameters used in the method are:
+        # Parameters used in the method are:
 
-        X: Feature matrix for which predictions will be generated.
-        Returns:
-        predictions: The predicted target values.
-        """
+        # X: Feature matrix for which predictions will be generated.
+        # Returns:
+        # predictions: The predicted target values.
+    
         # Normalize the input data with the same scaling applied in fit
         X = (X - self.feature_mean) / self.feature_std
         return X.dot(self.coefficients) + self.intercept
     
     def r_squared(self, X, y_true):
-        """
-        Compute there  R-squared value for the model using the provided data.
+        
+        # Compute there  R-squared value for the model using the provided data.
 
-        Parameters used in the method are :
+        # Parameters used in the method are :
 
-        X: Feature matrix.
-        y_true: Actual target values.
-        Returns:
+        # X: Feature matrix.
+        # y_true: Actual target values.
+        # Returns:
 
-        R² value: The calculated R-squared statistic.
-        """
+        # R² value: The calculated R-squared statistic.
+        
         # Predict the values
         predictions = self.predict(X)
         
@@ -134,9 +134,9 @@ class ElasticNetModelResults:
 
 
     def display_output_summary(self):
-        """
-        Print a summary of the fitted model, including coefficients and intercept.
-        """
+        
+        # Print a summary of the fitted model, including coefficients and intercept.
+        
         print("Model Summary:")
         print(f"Intercept: {self.intercept}")
         print(f"Coefficients: {self.coefficients}")
