@@ -80,5 +80,5 @@ class ElasticNetModelResults:
         r2 = 1 - (r / t)
         return r2
 
-    def rmse(self, y_true, y_pred):
-        return np.sqrt(np.mean((y_true - y_pred) ** 2))
+    def rmse(self, t, p):
+        return np.sqrt(np.mean((t - p) ** 2))
