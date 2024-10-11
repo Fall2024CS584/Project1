@@ -1,6 +1,5 @@
 import argparse
 import csv
-
 import numpy
 
 def linear_data_generator(m, b, rnge, N, scale, seed):
