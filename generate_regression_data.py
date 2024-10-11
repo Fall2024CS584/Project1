@@ -6,18 +6,18 @@ import numpy
 def linear_data_generator(m, b, rnge, N, scale, seed):
   rng = numpy.random.default_rng(seed=seed)
   sample = rng.uniform(low=rnge[0], high=rnge[1], size=(N, m.shape[0]))
-  ys = numpy.dot(sample, numpy.reshape(m, (-1,1))) + b
+  ys = numpy.dot(sample, m) + b
   noise = rng.normal(loc=0., scale=scale, size=ys.shape)
   return (sample, ys+noise)
 
 def write_data(filename, X, y):
-    with open(filename, "w") as file:
+    with open(filename, "w",newline='') as file:
         # X column for every x
         xs = [f"x_{n}" for n in range(X.shape[1])]
         header = xs + ["y"]
         writer = csv.writer(file)
         writer.writerow(header)
-        for row in numpy.hstack((X,y)):
+        for row in numpy.hstack((X,y.reshape(-1,1))):
             writer.writerow(row)
 
 def main():
