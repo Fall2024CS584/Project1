@@ -156,7 +156,8 @@ ii.
     ![Small Test Image](small_test2.jpeg)
 iii.
     ![Small Test Image](small_test3.jpeg)
-
+iv. 
+    ![Small Test Image](small_test_output.jpeg)
 
 ## 2. data_long.csv:
 i.
@@ -165,3 +166,5 @@ ii.
     ![Long Data Image](large_data2.jpeg)
 iii.
     ![Long Data Image](large_data3.jpeg)
+iv. 
+    ![Small Test Image](large_data_output.jpeg)
