@@ -20,5 +20,4 @@ Put your README here. Answer the following questions.
     iii.	The main reason for decrease in the accuracy is because one class significantly outweighs the other which makes the majority class more favorable.
   To solve this,  techniques like re-sampling and adjusting class weights can be done if given more time to increase the accuracy.
 
-* My runoutput
-  
+
