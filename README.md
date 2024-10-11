@@ -32,9 +32,24 @@ Combining L1 (Lasso) and L2 (Ridge) regularization, ElasticNet is a linear regre
     ```bash
     git clone https://github.com/priyanshpsalian/ML_Project1.git
     ```
+
+3. Create a virtual environment
+    ```bash
+    python3 -m venv .venv
+    ```
+4. Activate the environment
+    ```bash
+    source .venv/bin/activate  # On Unix or MacOS
+    .venv\Scripts\activate     # On Windows
+    ```
 2. Install the required dependencies:
     ```bash
     pip install -r requirements.txt
+    ```
+
+5. Run the test file to see the results
+    ```bash
+    python3 -m elasticnet.tests.test_ElasticNetModel
     ```
 
 ## Model Explanation
