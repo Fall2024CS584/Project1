@@ -1,5 +1,11 @@
 # Project 1
-
+-----------------------------------------------
+Group members:
+A20594429 - Satya mani srujan Dommeti
+A20543669 - SAI VENKATA VAMSI KRISHNA YELIKE
+A20583607 - Akshitha Reddy Kuchipatla
+A20577962 - Arjun Singh
+-----------------------------------------------
 * **What does the model you have implemented do and when should it be used?**  
   I have implemented an ElasticNet linear regression model. This model is used when you need a combination of L1 (Lasso) and L2 (Ridge) regularization techniques to handle multicollinearity, high-dimensional datasets, or when the data may have irrelevant features that should be eliminated (Lasso effect). It is best used when both sparsity (zero coefficients) and smoothness (small coefficients) are desired.
 
