@@ -165,7 +165,7 @@ Currently our Model may struggle with the following specific inputs:
 - **Large Datasets**: The performance migh fall if we try when dealing with very large datasets due to computational cost. Given time experementing the use more efficient optimization algorithms like mini batch Gradient Descent could be give us positive results.
 
 ## Results
-Here are the results from the model after training:
+Here are the results from the model after training on Generated Data:
 
 - **Mean Squared Error on Test Set**: 
     ```
