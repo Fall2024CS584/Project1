@@ -2,7 +2,7 @@ import os
 import csv
 import numpy as np
 import pytest
-from src.ElasticNet import ElasticNetModel
+from ElasticNet import ElasticNetModel
 from generate_regression_data import linear_data_generator
 
 def load_small_test_data(filename="small_test.csv"):
