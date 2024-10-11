@@ -1,13 +1,3 @@
-# Project 1 
-
-Put your README here. Answer the following questions.
-
-* What does the model you have implemented do and when should it be used?
-* How did you test your model to determine if it is working reasonably correctly?
-* What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
-* Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
-
-
 # **ElasticNet Linear Regression Model**
 
 ## **Overview**
@@ -110,6 +100,8 @@ I generated synthetic data to check if the model works as expected. I also verif
   * Convergence time: `0.0575 seconds`  
   * Early stopping: Iteration 253
 
+![][image1]![][image2]
+
 ### **Testing on Large Dataset (NYSE Prices Dataset)**
 
 I tested the model with a large dataset (`prices.csv` from the New York Stock Exchange Kaggle dataset). The model took longer to converge but worked as expected.
@@ -119,6 +111,10 @@ I tested the model with a large dataset (`prices.csv` from the New York Stock Ex
   * Actual values: `[6795900, 4264000, 57652300, 1921400, 3300000]`  
   * Convergence time: `24.5056 seconds`  
   * Early stopping: Iteration 253
+
+![][image3]
+
+![][image4]
 
 ## **Model Performance**
 
@@ -130,3 +126,26 @@ The model uses early stopping to improve performance. It stops training when the
 2. **Imbalanced Datasets**: The model may struggle with datasets where one feature is much more common than others.  
 3. **Scaling**: Data must be scaled. The model is sensitive to unscaled features.  
 4. **Very Large Datasets**: The model may still take some time to train on very large datasets. Using stochastic gradient descent might improve performance further.
+
+## **References**
+
+Here are references I used for this project:
+
+* **ElasticNet Regression**:  
+  * [Elastic Net in Machine Learning: ElasticNet Explained](https://www.geeksforgeeks.org/implementation-of-elastic-net-regression-from-scratch/)  
+* **L1 (Lasso) vs L2 (Ridge) Regularization**:  
+  * [Regularization Techniques: Ridge and Lasso Regression](https://www.analyticsvidhya.com/blog/2016/01/ridge-lasso-regression-python-complete-tutorial/)  
+* **Gradient Descent**:  
+  * [An Overview of Gradient Descent Optimization Algorithms](https://arxiv.org/abs/1609.04747)  
+* **NY Stock Exchange Dataset**:  
+  * [Kaggle \- New York Stock Exchange Dataset](https://www.kaggle.com/datasets/dgawlik/nyse?resource=download)
+
+### **Additional Notes**
+
+Parts of this code were debugged and error-corrected with assistance from a LLM, which helped ensure the functionality of the implementation.
+
+[image1]: https://drive.google.com/file/d/1Xci-fCKlDNENSjlM-AOmlJEA9tFckqkz/view?usp=sharing
+[image2]: https://drive.google.com/file/d/1Qj36gm50JqxXVTwQe8quOSCA8QGpLyEu/view?usp=sharing
+[image3]: https://drive.google.com/file/d/1kDIVOYPooVbA8GVs_jD6_G9PMuTqvmRS/view?usp=sharing
+[image4]: https://drive.google.com/file/d/15EVRianyn9JMjffi7KUdWnqAfNyG4H-c/view?usp=sharing
+
