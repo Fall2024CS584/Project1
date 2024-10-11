@@ -1,3 +1,6 @@
 numpy
 pytest
 ipython
+pandas
+matplotlib
+sklearn (for performance metrics evaluations only)
