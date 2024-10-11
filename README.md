@@ -34,7 +34,7 @@ pytest -s elasticnet/tests/test_ElasticNetModel.py
 This will run the test cases and print out the evaluation metrics and generate the plots.
 
 ### Introduction
-This project is an implementation of type of Linear Regression with ElasticNet regularization. This model is combination of two regularization techniques i.e; Lasso and Ridge regression. They are represented as L1 and L2 respectively.
+This project is an implementation of a type of Linear Regression with ElasticNet regularization. This model is a combination of two regularization techniques i.e; Lasso and Ridge regression. They are represented as L1 and L2 respectively.
  - **L1 Regularization** : It adds up a penalty which is equal to the sum of the absolute values of the model coefficients. This helps in feature selection, as it enables the model to identify and retain only the most significant features by eliminating those with zero coefficients. 
  - **L2 Regularization** : It adds up a penalty which is equal to the sum of the square values of the model coefficients. This helps in reducing the size of the coefficients, helping to prevent overfitting, particularly in situations where the features are strongly correlated.
 
@@ -49,7 +49,7 @@ This project is an implementation of type of Linear Regression with ElasticNet r
 
 ## i.What does the model you have implemented do and when should it be used?
 
-# ElasticNet Model Overview
+### ElasticNet Model Overview
 
 The **ElasticNet model** enhances linear regression by incorporating both L1 and L2 regression model techniques where L1 is the lasso regression and L2 is the ridge regression. It's particularly useful when we have data where we want to **balance out bias and variance values** or if we are **handling some high-dimensional data**.
 
@@ -57,7 +57,7 @@ The model we generated combines both L1 and L2 to give a better solution.We have
 
 
 ## ii. How did you test your model to determine if it is working reasonably correctly?
-# Model Testing Process
+### Model Testing Process
 
 The strengths of the model have been demonstrated through several test cases designed to ensure it behaves reasonably under different conditions:
 
@@ -73,7 +73,7 @@ Each test calculates **Mean Squared Error (MSE)**, **Mean Absolute Error (MAE)**
 
 
 ## iii.What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
-# Tuning ElasticNet Model Parameters
+### Tuning ElasticNet Model Parameters
 
 The ElasticNet model exposes the following parameters for tuning performance:
 
@@ -83,14 +83,14 @@ The ElasticNet model exposes the following parameters for tuning performance:
 - **tolerance**: Defines the threshold for convergence; the algorithm stops when changes in the coefficients are smaller than this value.
 - **learning_rate**: Controls the step size during optimization, affecting the speed and stability of convergence.
 
-## Additional Code Explanation
+### Additional Code Explanation
 - These parameters can be adjusted by users to better match their datasets and improve model performance.
 - We have divided the data into two parts where 80 % of the data is for Training and 20 % is for testing the data.
 - We have written code where the results are also documented seperately in a file called "Results.txt" where the results for the specific test run is stored.
 - We are also storing the plot images to the directory for reference and comparison.
 - We included a definition called `ml_grid_search` to ensure that the hyperparameters can be changed accorfding to user requirement and so that the best fit model can be decided based on which hyperparameters.
 
-## Basic Usage Example
+### Basic Usage Example
 
 ```python
     # This is for large grid parameter variations
@@ -108,15 +108,13 @@ The ElasticNet model exposes the following parameters for tuning performance:
 
 ## iv. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
 
-# Specific Inputs and Workarounds
-
-## Specific Inputs:
+### Specific Inputs:
 
 - **Data Set With Variation Of Data**: We had a fundamental issue with the specific orientation and data arrangement of the data which caused errors during runtime.
 
 - **Hyperparameters**: We faced issues when we use less parameters for tuning which created less variation and less data for the model to test on, as well as presented an issue when we used more parameters it took long time to compile for example, 3000 lines of data training the model on 1000 iterations with 200+ choices of hyperparameters.
 
-## Workarounds:
+### Workarounds:
 
 - **Data Set With Variation Of Data**: We Employed concept of Preprocessing the data where we understood the data which was going to be used and preprocessed the data by including a direct OS path and Specification of how the data was read and intepreted by the model.
 
