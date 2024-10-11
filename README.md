@@ -89,11 +89,52 @@ Click the Image to view
     * Input parameters: coefficient, intercept
     * Initializes the parameters which is received from the fit function
 
-2.	Predict():
+2.	__Predict()__:
     * This function is used to predict the values
     * As elastic net regularization is built on the Linear regression model we are using the linear equation y=mx+c to predict the values
     * The function returns the predicted values.
+      
+### 1.3 Steps to run the code
 
+## Activating the Virtual Environment
+
+1. **For Windows**:
+   - Navigate to the directory where the virtual environment is located:
+     ```bash
+     cd /path/to/your/project
+     ```
+   - Activate the virtual environment:
+     ```bash
+     .\new_env\Scripts\activate
+     ```
+2. **For macOS/Linux**:
+   - Navigate to the directory where the virtual environment is located:
+     ```bash
+     cd /path/to/your/project
+     ```
+   - Activate the virtual environment:
+     ```bash
+     source new_env/bin/activate
+     ```
+Once the environment is activated, you can proceed to install the necessary dependencies and run the scripts.
+
+## Running the Test Files
+
+* **To test using the California Housing dataset:**
+   ```bash
+   python -m elasticnet.tests.test_california_housing
+
+* **To test using the Netflix Stock Prediction dataset:**
+  ```bash
+   python -m elasticnet.tests.test_california_housing
+
+* **To test using the Small test dataset:**
+  ```bash
+   python -m elasticnet.tests.small_test
+
+* **To test using the Synthetic dataset:**
+  ```bash
+   python -m elasticnet.tests.test_synthetic_data
 
 ## 2. Testing
 How did you test your model to determine if it is working reasonably correctly?
@@ -181,7 +222,7 @@ __Output__ :-
 
 ![Project Screenshot](elasticnet/images/8_nan_output.png "Screenshot of the Project")
 
-* y cntains NaN values
+* y contains NaN values
 
 __Input__ :-
 
@@ -200,26 +241,6 @@ __Input__ :-
 __Output__ :- 
 
 ![Project Screenshot](elasticnet/images/10_model_output.png "Screenshot of the Project")
-
-* X must be a numpy array
-
-__Input__ :-
-
-![Project Screenshot](elasticnet/images/11_numpy_input.png "Screenshot of the Project")
-
-__Output__ :- 
-
-![Project Screenshot](elasticnet/images/11_numpy_output.png "Screenshot of the Project")
-
-* X contains NaN values
-
-__Input__ :-
-
-![Project Screenshot](elasticnet/images/12_nan_input.png "Screenshot of the Project")
-
-__Output__ :- 
-
-![Project Screenshot](elasticnet/images/12_nan_output.png"Screenshot of the Project")
 
 ### 2.2 Test case 1:
 __small_test.csv__ 
