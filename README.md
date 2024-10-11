@@ -3,7 +3,7 @@
 
 # Credit Spread Linear-regression-with-ElasticNet-regularization - CS584 Machine Learning
 
-[Project Git rep](https://github.com/PaulAnrd/Credit-Spread-Linear-regression-with-ElasticNet-regularization/tree/main)
+[Project Git repo](https://github.com/PaulAnrd/Credit-Spread-Linear-regression-with-ElasticNet-regularization/tree/main)
 
 [Subject](https://github.com/Fall2024CS584/Project1)
 
@@ -31,3 +31,8 @@ These parameters are exposed to the user in this implementation, so that we can 
 
 
 ### 4. Are there specific inputs that your implementation has trouble with? Given more time,could you work around these or is it fundamental to the model?
+Our ElasticNet implementation handles most types of data well, but there are a few situations where it could run into trouble. For example, highly correlated features (multicollinearity) might slow down convergence or cause instability. ElasticNet helps with this, but in extreme cases, tweaking the L1 and L2 balance (reducing the l1_ratio) or normalizing the data could improve things.
+
+Similarly, sparse data with lots of zeros could make the model slow to converge, especially if the alpha value is high. Reducing alpha or leaning more toward L2 regularization would help speed things up. Finally, imbalanced data or non-linear relationships might trip up the model, since it assumes linearity and doesn’t account for imbalances in the target variable. You’d likely need to handle this by preprocessing the data or adjusting the loss function.
+
+In short, these issues can be mitigated with tuning and data prep, and aren’t fundamental problems with the model itself.
