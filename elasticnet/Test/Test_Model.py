@@ -5,10 +5,10 @@ import argparse
 ''' give your root directory path here'''
 sys.path.insert(1,"----Give your root directory path----")
 
-from  Models.ElasticNet import ElasticNetModel
-from  Models.ElasticNet import ElasticNetModelResults
-from  Models.Data_Gen import DataGenerator
-from  Models.Data_Gen import ProfessorData
+from  models.ElasticNet import ElasticNetModel
+from  models.ElasticNet import ElasticNetModelResults
+from  models.Data_Gen import DataGenerator
+from  models.Data_Gen import ProfessorData
 
 def train_test_split(x, y, test_size): 
     np.random.seed(10)
