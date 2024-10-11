@@ -83,11 +83,12 @@ The ElasticNet model exposes the following parameters for tuning performance:
 - **tolerance**: Defines the threshold for convergence; the algorithm stops when changes in the coefficients are smaller than this value.
 - **learning_rate**: Controls the step size during optimization, affecting the speed and stability of convergence.
 
---These parameters can be adjusted by users to better match their datasets and improve model performance.
---We have divided the data into two parts where 80 % of the data is for Training and 20 % is for testing the data.
---We have written code where the results are also documented seperately in a file called "Results.txt" where the results for the specific test run is stored.
---We are also storing the plot images to the directory for reference and comparison.
---We included a definition called `ml_grid_search` to ensure that the hyperparameters can be changed accorfding to user requirement and so that the best fit model -can be decided based on which hyperparameters.
+## Additional Code Explanation
+-These parameters can be adjusted by users to better match their datasets and improve model performance.
+-We have divided the data into two parts where 80 % of the data is for Training and 20 % is for testing the data.
+-We have written code where the results are also documented seperately in a file called "Results.txt" where the results for the specific test run is stored.
+-We are also storing the plot images to the directory for reference and comparison.
+-We included a definition called `ml_grid_search` to ensure that the hyperparameters can be changed accorfding to user requirement and so that the best fit model -can be decided based on which hyperparameters.
 
 ## Basic Usage Example
 
