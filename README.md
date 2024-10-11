@@ -85,36 +85,23 @@ The ElasticNet model exposes the following parameters for tuning performance:
 
 These parameters can be adjusted by users to better match their datasets and improve model performance.
 We have divided the data into two parts where 80 % of the data is for Training and 20 % is for testing the data.
-The basic usage  
+We have written code where the results are also documented seperately in a file called "Results.txt" where the results for the specific test run is stored.
+We are also storing the plot images to the directory for reference and comparison.
+
 ## Basic Usage Example
 
 ```python
-class ElasticNetModel:
-    def __init__(self, regularization_strength, l1_ratio, max_iterations, tolerance=1e-6, learning_rate=0.01):
-        self.regularization_strength = regularization_strength
-        self.l1_ratio = l1_ratio
-        self.max_iterations = max_iterations
-        self.tolerance = tolerance
-        self.learning_rate = learning_rate
-        
-    def fit(self, X, y):
-        # Fit the model using the training data
-        pass
+    # This is for large grid parameter variations
+     regularization_strength_values = [0.01, 0.1, 0.5, 1.0, 5.0]
+     l1_ratio_values = [0.1, 0.2, 0.5, 0.7, 0.9]
+     learning_rate_values = [0.001, 0.01, 0.1]
+     max_iterations_values = [500, 1000, 2000]
     
-    def predict(self, X):
-        # Predict using the fitted model
-        pass
-
-    def score(self, X, y):
-        # Evaluate the model performance
-        pass
-```
-```
-# Example usage:
-# model = ElasticNetModel(1.0, 0.5, 1000)
-# model.fit(X_train, y_train)
-# predictions = model.predict(X_test)
-# score = model.score(X_test, y_test)
+    # This is for small grid parameter variations
+    regularization_strength_values = [0.1, 0.5]
+    l1_ratio_values = [0.1, 0.5]
+    learning_rate_values = [0.01]
+    max_iterations_values = [1000]
 ```
 
 ## iv. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
@@ -123,15 +110,15 @@ class ElasticNetModel:
 
 ## Specific Inputs:
 
-- **Highly imbalanced datasets**: The ElasticNet model struggles with severe class imbalance or the presence of outliers, as they can heavily influence the regression line. This issue can be mitigated through proper outlier detection methods and basic preprocessing.
+- **Data Set With Variation Of Data**: We had a fundamental issue with the specific orientation and data arrangement of the data which caused errors during runtime.
 
-- **Non-linear relationships**: ElasticNet assumes a linear relationship between independent variables and the dependent variable. If the data exhibits complex non-linear patterns, the model's performance might degrade. Non-linear models or feature engineering could be considered for enhancements.
+- **Hyperparameters**: We faced issues when we use less parameters for tuning which created less variation and less data for the model to test on, as well as presented an issue when we used more parameters it took long time to compile for example, 3000 lines of data training the model on 1000 iterations with 200+ choices of hyperparameters.
 
 ## Workarounds:
 
-- **Imbalanced datasets**: Employ data resampling techniques, robust scaling, or apply transformations relevant to the problem domain to handle outliers more effectively.
+- **Data Set With Variation Of Data**: We Employed concept of Preprocessing the data where we understood the data which was going to be used and preprocessed the data by including a direct OS path and Specification of how the data was read and intepreted by the model.
 
-- **Non-linear relationships**: Given more time, incorporating features such as polynomial feature generation or kernel-based approaches can help capture non-linearity, though it may increase the model's complexity.
+- **Choice of Hyperparameters**: Given more time, We added more choices in the hyperparemeters and made it more user controlled, We also esured that all the choices were considered the best fit for the model was also displayed. Incorporating features such as polynomial feature generation and plots helped us analyse the respective outputs.
 
 ### Output:
 Ran with 2 datasets
