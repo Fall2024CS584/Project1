@@ -47,7 +47,7 @@ This project is an implementation of type of Linear Regression with ElasticNet r
 - **Prediction**: Once the model is done with training, you can use the `predict` method to obtain predictions on the test datasets. This allows the model to leverage the relationships it has learned to make accurate forecasts for data that it has not encountered before.
 
 
-## i.What does the model you have implemented do and when should it be used?
+## 1. What does the model you have implemented do and when should it be used?
 
 # ElasticNet Model Overview
 
@@ -63,7 +63,7 @@ The **ElasticNet model** enhances linear regression by incorporating both L1 and
 - Encountering multicollinearity among features.
 - Seeking an optimal balance between bias and variance.
 
-## ii. How did you test your model to determine if it is working reasonably correctly?
+## 2. How did you test your model to determine if it is working reasonably correctly?
 # Model Testing Process
 
 The strengths of the model have been demonstrated through several test cases designed to ensure it behaves reasonably under different conditions:
@@ -87,7 +87,7 @@ The strengths of the model have been demonstrated through several test cases des
 Each test calculates **Mean Squared Error (MSE)**, **Mean Absolute Error (MAE)**, and **R-squared (R2)**. Additionally, **scatter** and **residual plots** are created to visualize the model's performance.
 
 
-## iii.What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
+## 3. What parameters have you exposed to users of your implementation in order to tune performance? (Also perhaps provide some basic usage examples.)
 # Tuning ElasticNet Model Parameters
 
 The ElasticNet model exposes the following parameters for tuning performance:
@@ -131,7 +131,7 @@ class ElasticNetModel:
 # score = model.score(X_test, y_test)
 ```
 
-## iv. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
+## 4. Are there specific inputs that your implementation has trouble with? Given more time, could you work around these or is it fundamental?
 
 # Specific Inputs and Workarounds
 
