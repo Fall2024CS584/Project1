@@ -35,5 +35,7 @@ Yes, the model struggles with non-numeric data, missing values, due to its basic
 Yes, with more time, enhancements like automatic handling of non-numeric data and missing values, could be implemented to make the model more robust and efficient.
 
 
-### NOTE:
-please using `pip install numba` to install numba before run it, And make sure the `test_data.csv` and `train_data.csv` is on the correct position.
+### Before you RUN:
+1. please using `pip install numba numpy` to install numba and numpy before run it.
+1. And make sure `test_data.csv` and `train_data.csv` are in the correct location, if not there, use one of the `Data_Generator` scripts to generate it according to the platform you are using..
+2. Now you should ready to run the test program using `python elasticnet\tests\test_ElasticNetModel.py`.
