@@ -100,7 +100,9 @@ I generated synthetic data to check if the model works as expected. I also verif
   * Convergence time: `0.0575 seconds`  
   * Early stopping: Iteration 253
 
-![][image1]![][image2]
+ ![image](https://github.com/user-attachments/assets/d4e776c5-8e17-4b15-a19c-bdcea3373613)
+ ![image](https://github.com/user-attachments/assets/25ebb610-311d-4f5d-9899-0b352c189688)
+
 
 ### **Testing on Large Dataset (NYSE Prices Dataset)**
 
@@ -111,10 +113,9 @@ I tested the model with a large dataset (`prices.csv` from the New York Stock Ex
   * Actual values: `[6795900, 4264000, 57652300, 1921400, 3300000]`  
   * Convergence time: `24.5056 seconds`  
   * Early stopping: Iteration 253
-
-![][image3]
-
-![][image4]
+    
+ ![image](https://github.com/user-attachments/assets/a69fb139-4e1a-462f-abca-0606dd23f0ff)
+ ![image](https://github.com/user-attachments/assets/cc1f5103-cca3-4ae2-98ec-4e68a26e7dac)
 
 ## **Model Performance**
 
