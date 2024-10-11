@@ -64,8 +64,6 @@ This model is useful when the dataset has many correlated features. It works whe
 **Preprocessing the Data**  
 The dataset should contain only numerical features. I have written a preprocessing function to handle this. It removes non-numeric columns and handles missing values.  
 Example:  
-python  
-Copy code  
 `data = pd.read_csv('prices.csv')  # Load dataset`  
 `data = preprocess_data(data)      # Preprocess data`  
 `X = data.iloc[:, :-1].values      # Feature matrix`  
