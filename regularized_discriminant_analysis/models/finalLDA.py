@@ -139,7 +139,7 @@ def manual_train_test_split(X, y, test_size=0.2, random_state=None):
     
     return X[train_indices], X[test_indices], y[train_indices], y[test_indices]
 
-df = pd.read_csv("../../generated_data.csv", header=None)
+df = pd.read_csv("generated_data.csv", header=None)
 
 X_features = df.iloc[:, :-1].values #this is the training data
 y_labels= df .iloc[:, -1].values #this is the training labels
