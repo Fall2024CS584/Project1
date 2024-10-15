@@ -42,11 +42,11 @@ py .\testDataGenerator.py -N 150 -f 8 -c 5 -seed 10000 -output_file generated_da
 
 ### Step 2: Run the Program
 
-Execute the final LDA model which is model folder:
-Note:  Final_LDA.ipynb is our  final output and notebook  fine
+Execute the final LDA model:
+Note:  Final_LDA.ipynb is our  final code and notebook  file to test our program,
 
  ```bash
-py .\finalLDA.py
+Final_LDA.ipynb 
 
  ```
 The program execution steps are shown in the notebook file
