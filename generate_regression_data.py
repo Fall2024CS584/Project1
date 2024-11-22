@@ -1,40 +1,106 @@
-import argparse
+import numpy as np
 import csv
-
-import numpy
-
-def linear_data_generator(m, b, rnge, N, scale, seed):
-  rng = numpy.random.default_rng(seed=seed)
-  sample = rng.uniform(low=rnge[0], high=rnge[1], size=(N, m.shape[0]))
-  ys = numpy.dot(sample, numpy.reshape(m, (-1,1))) + b
-  noise = rng.normal(loc=0., scale=scale, size=ys.shape)
-  return (sample, ys+noise)
-
-def write_data(filename, X, y):
-    with open(filename, "w") as file:
-        # X column for every x
-        xs = [f"x_{n}" for n in range(X.shape[1])]
-        header = xs + ["y"]
-        writer = csv.writer(file)
-        writer.writerow(header)
-        for row in numpy.hstack((X,y)):
-            writer.writerow(row)
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-N", type = int, help="Number of samples.")
-    parser.add_argument("-m", nargs='*', type = float, help="Expected regression coefficients")
-    parser.add_argument("-b", type= float, help="Offset")
-    parser.add_argument("-scale", type=float, help="Scale of noise")
-    parser.add_argument("-rnge", nargs=2, type=float,  help="Range of Xs")
-    parser.add_argument("-seed", type=int, help="A seed to control randomness")
-    parser.add_argument("-output_file", type=str, help="Path to output file")
-    args = parser.parse_args()
-    m = numpy.array(args.m)
-    X, y = linear_data_generator(m, args.b, args.rnge, args.N, args.scale, args.seed)
-    write_data(args.output_file, X,y)
-
-if __name__=="__main__":
-    main()
+import argparse
+from sklearn.preprocessing import RobustScaler
+import matplotlib.pyplot as plt
 
 
+def load_data(filename):
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header
+        X, y = [], []
+        for row in reader:
+            X.append([float(num) for num in row[:-1]])
+            y.append(float(row[-1]))
+        return np.array(X), np.array(y)
+
+def test_model_with_generated_data(filename):
+    X, y = load_data(filename)
+    
+    scaler = RobustScaler()
+    X_scaled = scaler.fit_transform(X)
+    
+    model = ElasticNetModel(lambdas=1.0, l1_ratio=0.5, iterations=1000, learning_rate=0.01)
+    results = model.fit(X_scaled, y)
+    
+    predictions = results.predict(X_scaled)
+    
+    # Plotting the results
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y, predictions, alpha=0.5)
+    plt.title('Comparison of Actual and Predicted Values')
+    plt.xlabel('Actual Values')
+    plt.ylabel('Predicted Values')
+    plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)  # Diagonal line for reference
+    plt.grid(True)
+    plt.show()
+    
+    print("Predictions:", predictions)
+    print("Actuals:", y)
+    return predictions, y
+    
+predictions, actuals = test_model_with_generated_data('data.csv')
+
+
+def generate_data(N, m, b, scale, rnge, seed, output_file):
+    def linear_data_generator(m, b, rnge, N, scale, seed):
+        rng = np.random.default_rng(seed=seed)
+        sample = rng.uniform(low=rnge[0], high=rnge[1], size=(N, len(m)))
+        ys = np.dot(sample, np.array(m).reshape(-1, 1)) + b
+        noise = rng.normal(loc=0., scale=scale, size=ys.shape)
+        return (sample, ys + noise)
+
+    def write_data(filename, X, y):
+        with open(filename, "w") as file:
+            xs = [f"x_{n}" for n in range(X.shape[1])]
+            header = xs + ["y"]
+            writer = csv.writer(file)
+            writer.writerow(header)
+            for row in np.hstack((X, y)):
+                writer.writerow(row)
+
+    m = np.array(m)
+    X, y = linear_data_generator(m, b, rnge, N, scale, seed)
+    write_data(output_file, X, y)
+
+# Calling the function with example parameters
+generate_data(100, [3, 2], 5, 1.0, [-10, 10], 42, 'data.csv')
+
+
+def load_data(filename):
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header
+        X, y = [], []
+        for row in reader:
+            X.append([float(num) for num in row[:-1]])
+            y.append(float(row[-1]))
+        return np.array(X), np.array(y)
+
+def test_model_with_generated_data(filename):
+    X, y = load_data(filename)
+    
+    scaler = RobustScaler()
+    X_scaled = scaler.fit_transform(X)
+    
+    model = ElasticNetModel(lambdas=1.0, l1_ratio=0.5, iterations=1000, learning_rate=0.01)
+    results = model.fit(X_scaled, y)
+    
+    predictions = results.predict(X_scaled)
+    
+    # Plotting the results
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y, predictions, alpha=0.5)
+    plt.title('Comparison of Actual and Predicted Values')
+    plt.xlabel('Actual Values')
+    plt.ylabel('Predicted Values')
+    plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)  # Diagonal line for reference
+    plt.grid(True)
+    plt.show()
+    
+    print("Predictions:", predictions)
+    print("Actuals:", y)
+    return predictions, y
+    
+predictions, actuals = test_model_with_generated_data('data.csv')
