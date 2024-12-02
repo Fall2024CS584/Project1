@@ -42,8 +42,8 @@ SWe can deal with some of the issues given sufficinet time and resources.
 
 The directory has three files:
 Readme.txt file 
-Linear Regression ElasticNet Regularization.ipynb
-ElasticNetReg.py
+elasticnet/test/Linear Regression ElasticNet Regularization.ipynb
+elasticnet/models/ElasticNetReg.py
 
 ElasticNetReg.py hosts the model, which has three methods.
     Fit method is used to train the model, and calculate weights and biases.
