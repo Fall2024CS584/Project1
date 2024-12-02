@@ -1,3 +1,6 @@
 numpy
 pytest
 ipython
+pandas
+scikit-learn
+matplotlib
