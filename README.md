@@ -44,6 +44,7 @@ The directory has three files:
 Readme.txt file 
 elasticnet/test/Linear Regression ElasticNet Regularization.ipynb
 elasticnet/models/ElasticNetReg.py
+elasticnet/test/small test.ipynb
 
 ElasticNetReg.py hosts the model, which has three methods.
     Fit method is used to train the model, and calculate weights and biases.
